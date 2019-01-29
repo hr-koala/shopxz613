@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>确认订单</title>
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/mr_style.css">
+    <!--<link rel="stylesheet" type="text/css" href="grabble.css">-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    
+</head>
+<body class="page-order">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>确认订单</h5>
+</header>
+
+
+<div class="conter">
+    <div class="warning"></div>
+    <!-- 提示 -->
+    <a href="" class="prompt">
+        <span class="mask-text"></span>
+        <p class="hint">首次支付时，一次性消费满5000到6000，享受4980的优惠价，并且订单完成后，自动升级为代理。在商城再次消费享受全场商品半价优惠，并且拥有个人的代理专区，专属邀请码，轻松开启创富之路。</p>
+        <p class="hint-two">首次支付时，一次性消费满5000到6000，享受4980的优惠价，并且订单完成后，自动升级为代理。在商城再次消费享受全场商品半价优惠，并且拥有个人的代理专区，专属邀请码，轻松开启创富之路。</p>
+    </a>
+
+    <div class="address">
+
+        <!-- 新建地址 -->
+        <a href="" class="new-address">
+            <div class="imgplus">
+                <img src="images/jia.png">
+            </div>
+            <span class="text">新建收货地址</span>
+            <span class="right"></span>
+        </a>
+
+        <!-- 已选地址 -->
+        <a href="" class="existing">
+            <div class="existing-left">
+                <span class="username">点点滴光</span>
+                <span class="statu">默认</span>
+            </div>
+            <div class="existing-right">
+                <span class="phone-number">15678945646</span>
+                <span class="coordinate">湖北省武汉市洪山区当代梦工厂</span>
+                <span class="e-right"></span>
+            </div>
+        </a>
+
+        <!-- 提示填写收货地址 -->
+        <div class="write">请选择收获地址</div>
+
+    </div>
+
+    <div class="information">
+        <div class="commodity">
+            <img src="images/prod2.png">
+            <div class="info">
+                <p>V脸套装（V脸霜+脸神奇+唤醒面膜）</p>
+                <span class="specification">规格:100ML</span>
+
+                <!-- 原价 -->
+                <!-- <div class="prices">¥1980</div> -->
+
+                <!-- 代理价 -->
+                <div class="proxy-prices">代理价:
+                    <span class="proxy">¥990</span>
+                    <span class="old-prices">¥1980</span>
+                </div>
+
+            </div>
+            <span>×1</span>
+        </div>
+        <!-- 清除浮动 -->
+        <div style="clear:both;"></div>
+        <div class="distribution">
+            <div class="distr">配送方式
+                <span>快递发货</span>
+            </div>
+
+            <!-- 无代理价 -->
+            <!-- <div class="commodity-price">商品金额
+                <span>¥1980</span>
+            </div> -->
+
+            <!-- 有代理价 -->
+            <div class="commodprice">商品原价
+                <span>¥1980</span>
+            </div>
+            <div class="offerprices">代理优惠价
+                <span>¥990</span>
+            </div>
+
+        </div>
+    </div>
+
+<form action=""></form>
+    <div class="communication">
+        <div class="freight">
+            运费:
+            <span>￥0</span>
+        </div>
+        <div class="leave-comments">
+            买家留言:
+            <input type="search" placeholder="卖家留言">
+        </div>
+        <span>共1件商品</span>
+    </div>
+    <div class="bottom">
+        <div class="total">合计:<span>￥990</span></div>
+    <input type="submit" class="btn" value="提交订单">
+</form>
+</div>
+</div>
+
+
+    
+</body>
+</html>

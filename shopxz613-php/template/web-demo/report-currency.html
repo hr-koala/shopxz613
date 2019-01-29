@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>报单币</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body class="page-miorder report-currency">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>报单币</h5>
+</header>
+
+<div class="container">
+    <div class="curren-top">
+        <div class="lf">共计:15000</div>
+        <div class="rg">剩余：11000</div>
+    </div>
+    <div class="head">
+        <ul class="flex-row">
+            <li data-index="0" class="on">已入账</li>
+            <li data-index="1" >已使用</li>
+        </ul>
+    </div>
+
+    <div class="no-data">
+        <!--<img src="images/icon-null-order.png">-->
+    </div>
+    <div class="list has-data">
+
+        <div class="box">
+            <ul>
+                <li class="">
+                        <div class="box-lf">
+                                <div class="num">50000</div>
+                                <div class="time">
+                                    入账时间：2018-01-01 11:53
+                                </div>
+                        </div>
+                        <div class="box-rg">
+                            未使用
+                        </div>
+                </li>
+                <li class="">
+                        <div class="box-lf">
+                            <div class="num">50000</div>
+                            <div class="time">
+                                入账时间：2018-01-01 11:53
+                            </div>
+                        </div>
+                        <div class="box-rg">
+                            未使用
+                        </div>
+                </li>
+            </ul>
+    </div>
+
+</div>
+
+
+</body>
+<footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  5;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+
+
+<script>
+
+    $(function(){
+        $('.head ul li').on('click', function(){
+            var index = $(this).data('index')
+            $(this).addClass("on").siblings().removeClass('on')
+        })
+
+
+
+    })
+
+</script>
+</html>

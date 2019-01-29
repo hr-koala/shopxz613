@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>提现明细</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body class="page-withdraw-detail">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>提现明细</h5>
+</header>
+<div class="no-data">
+    <img src="images/icon_income_no.png">
+    <div class="no-data-txt">暂无！</div>
+</div>
+<div class="container has-data">
+    <div class="top">
+        <div class="num">￥<span>3000.00</span></div>
+        <div class="name">共计提现</div>
+    </div>
+    <div class="main">
+        <div class="balance">
+            <div class="balance-lf">
+                <div class="balance-img">
+                    <img src="images/icon_tixian.png">
+                </div>
+                <div class="balance-txt">
+                    当前余额：<span>600222222222</span>
+                </div>
+            </div>
+            <div class="balance-right">
+                <span>去提现</span>
+                <img src="images/icon_fanhui.png">
+            </div>
+        </div>
+        <div class="withdraw">
+            <div class="withdraw-lf">
+                <div class="withdraw-img">
+                    <img src="images/prod6.png">
+                </div>
+                <div class="withdraw-txt">
+                    <div class="withdraw-txt1">佣金提现</div>
+                    <div class="withdraw-txt-time">2018-12-13  09:04:40</div>
+                </div>
+            </div>
+            <div class="withdraw-right">
+                <div class="withdraw-right-num">-200.00</div>
+                <div class="withdraw-right-txt">提现成功</div>
+            </div>
+        </div>
+        <div class="withdraw">
+            <div class="withdraw-lf">
+                <div class="withdraw-img">
+                    <img src="images/prod6.png">
+                </div>
+                <div class="withdraw-txt">
+                    <div class="withdraw-txt1">佣金提现</div>
+                    <div class="withdraw-txt-time">2018-12-13  09:04:40</div>
+                </div>
+            </div>
+            <div class="withdraw-right">
+                <div class="withdraw-right-num">-200.00</div>
+                <div class="withdraw-right-txt">提现成功</div>
+            </div>
+        </div>
+        <div class="withdraw">
+            <div class="withdraw-lf">
+                <div class="withdraw-img">
+                    <img src="images/prod6.png">
+                </div>
+                <div class="withdraw-txt">
+                    <div class="withdraw-txt1">佣金提现</div>
+                    <div class="withdraw-txt-time">2018-12-13  09:04:40</div>
+                </div>
+            </div>
+            <div class="withdraw-right">
+                <div class="withdraw-right-num">-200.00</div>
+                <div class="withdraw-right-txt">提现成功</div>
+            </div>
+        </div>
+        <div class="withdraw">
+            <div class="withdraw-lf">
+                <div class="withdraw-img">
+                    <img src="images/prod6.png">
+                </div>
+                <div class="withdraw-txt">
+                    <div class="withdraw-txt1">佣金提现</div>
+                    <div class="withdraw-txt-time">2018-12-13  09:04:40</div>
+                </div>
+            </div>
+            <div class="withdraw-right">
+                <div class="withdraw-right-num">-200.00</div>
+                <div class="withdraw-right-txt">提现成功</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  4;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+<script>
+    $(function () {
+        console.log($(".top .num span").text())
+        if($(".top .num span").text() > 0){
+            $(".page-withdraw-detail .no-data").hide()
+            $(".page-withdraw-detail .has-data").show()
+        }else {
+            $(".page-withdraw-detail .no-data").show()
+            $(".page-withdraw-detail .has-data").hide()
+        }
+    })
+</script>
+
+</body>
+</html>

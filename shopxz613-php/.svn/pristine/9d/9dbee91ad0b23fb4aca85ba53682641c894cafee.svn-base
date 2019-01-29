@@ -1,0 +1,187 @@
+
+
+<include file="public/header" title="分销中心"  body="page-dcom"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/tonghaoran/css/common.css">
+<link rel="stylesheet" type="text/css" href="__STATIC__/tonghaoran/css/mr_style.css">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>分销中心</h5>
+</header>
+
+<div class="container">
+    <div class="top">
+        <div class="top-left">
+            <div class="avatar">
+                <img src="<if condition='$user_info[head_pic] neq null'>{$user_info[head_pic]}<else />__STATIC__/tonghaoran/images/prod6.png</if>">
+            </div>
+            <div class="name-info">
+                <div class="name-box">
+                    <div class="name"><if condition="$user_info['nickname'] neq ''">{$user_info['nickname']}<else />未设置</if></div>
+                    <div class="proxy">
+                        <div class="proxy-img"></div>
+                        <div class="proxy-txt"><if condition="$level neq ''">{$level['level_name']}<else />普通会员</if></div>
+                    </div>
+                </div>
+                <div class="tel-box">
+                    <div class="tel">{:substr_replace($user_info[mobile], '****', 3, 4)}</div>
+                    <div class="referrer">推荐人：{$referee}</div>
+                </div>
+
+            </div>
+        </div>
+        <!--<div class="top-right">
+            <img src="__STATIC__/tonghaoran/images/icon_jing.png">
+        </div>-->
+    </div>
+    <div class="yongjin">
+        <div class="yongjin-lf">
+            <div class="num"><span>{$user_info['goods_income']}</span></div>
+            <div class="name">余额</div>
+        </div>
+        <a class="yongjin-right" href="{:U('cosmetology/Agent/withdrawMoney')}">
+            <div class="num">
+                <span>{$user_info['user_money']}</span>
+                <div class="name">我的佣金</div>
+            </div>
+            <div class="more"></div>
+        </a>
+    </div>
+
+    <div class="box">
+        <a class="income" href="{:U('cosmetology/Index/index',['myShop'=>$user_info['user_id']])}">
+
+            <div class="income-lf">
+                <img src="__STATIC__/tonghaoran/images/icon_distribut1.png">
+                <span>我的小店</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a>
+        <!-- <a class="income" href="{:U('cosmetology/Agent/income')}">
+
+            <div class="income-lf">
+                <img src="__STATIC__/tonghaoran/images/icon_distribut1.png">
+                <span>销售金额</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a> -->
+        <a class="income" href="{:U('cosmetology/Agent/distriOrder')}">
+            <div class="income-lf">
+                <img src="__STATIC__/tonghaoran/images/icon_distribut2.png">
+                <span>销售订单</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a>
+    </div>
+    <div class="box">
+        <a class="income" href="{:U('cosmetology/Agent/drawingRecord')}">
+            <div class="income-lf">
+                <img src="__STATIC__/tonghaoran/images/icon_distribut3.png">
+                <span>提现明细</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a>
+        <a class="income" href="{:U('cosmetology/Agent/reward_details')}">
+            <div class="income-lf">
+                <img src="__STATIC__/tonghaoran/images/icon_distribut4.png">
+                <span>奖励明细</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a>
+    </div>
+
+    <div class="box">
+        <a class="income" href="{:U('cosmetology/Agent/inviteFriends')}">
+            <div class="income-lf">
+                <img src="__STATIC__/tonghaoran/images/icon_distribut5.png">
+                <span>邀请好友</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a>
+        <a class="income" href="{:U('cosmetology/Agent/myRecommend')}">
+            <div class="income-lf">
+                <img src="__STATIC__/tonghaoran/images/icon_distribut6.png">
+                <span>我的代理</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a>
+    </div>
+    <!--<div class="box">
+        <a class="income" href="#">
+            <div class="income-lf">
+                <img src="__STATIC__/tonghaoran/images/icon_distribut6.png">
+                <span>我要进货</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a>
+        <a class="income" href="{:U('cosmetology/Agent/levelDescription')}">
+            <div class="income-lf">
+                <img src="__STATIC__/tonghaoran/images/icon_distribut7.png">
+                <span>等级说明</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a>
+    </div>-->
+    <!--  <div class="box">
+       <div class="income">
+            <div class="income-lf">
+                <img src="__STATIC__/tonghaoran/images/icon_jinhuo.png">
+                <span>我要进货</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </div>
+    </div> -->
+    <!--
+    <div class="box">
+        <ul>
+            <li class="income">
+                <a href="{:U('cosmetology/Agent/reprotInfor')}">
+                    <div class="income-lf">
+                        <img src="__STATIC__/tonghaoran/images/icon_baodanziliao.png">
+                        <span>报单资料</span>
+                    </div>
+                    <div class="income-right">
+                        <div class="more"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="income">
+                <a href="{:U('cosmetology/Agent/reportManagement')}">
+                    <div class="income-lf">
+                        <img src="__STATIC__/tonghaoran/images/icon_baodanbi.png">
+                        <span>报单管理</span>
+                    </div>
+                    <div class="income-right">
+                        <div class="more"></div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+-->
+</div>
+
+<include file="public/footer"/>
+
+</body>
+</html>

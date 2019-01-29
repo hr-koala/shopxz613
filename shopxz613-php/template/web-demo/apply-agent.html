@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>代理</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+</head>
+<body class="page-cart page-report-cart page-purch">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>代理</h5>
+</header>
+
+<div class="container" id="all">
+    <div class="dealer-con">
+        <div class="dealer">
+            <img class="dealer-img" src="images/dealer.png">
+            <div class="dealer-txt">成为经销商</div>
+            <div class="dealer-num">¥ 4800</div>
+        </div>
+        <div class="dealer-stats">
+            1.充值4800元成为经销商即可享受提货价
+        </div>
+
+    </div>
+    <div class="taocan">产品选择</div>
+    <div class="main" v-if="2<3">
+        <div class="list">
+            <div class="box flex-row" v-for="n in 3" data-num="1" data-price="895">
+                <!--<label :for="'ch' + n"><input type="checkbox" name="" :id="'ch' + n" class="choose"></label>-->
+                <div class="img"><img src="images/prod2.png" alt=""></div>
+                <div class="right flex-column">
+                    <div class="name">V脸套装（V脸霜+瘦脸V脸套装（V脸霜+瘦脸</div>
+                    <div class="spec">规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML</div>
+                    <div class="sbot flex-row">
+                        <div class="price">¥895</div>
+                        <div class="set-num flex-row">
+                            <div class="icon sub">-</div>
+                            <div class="num">1</div>
+                            <div class="icon add">+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="report-curren">
+            <div class="all-price price">合计金额：<span class="all-price-num" id="allPrice">¥0</span></div>
+        </div>
+        <div class="btn btn-buy">
+            <a href="">充值</a>
+        </div>
+    </div>
+
+    <div class="no-data" v-else>
+        <div class="icon-none"></div>
+        <p>购物袋空空如也</p>
+        <a href="index1.html" class="btn">去首页选购商品吧</a>
+    </div>
+
+
+</div>
+
+<footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  4;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+
+</body>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script>
+
+    $(function(){
+        var vm = new Vue({
+            el: '#all'
+        })
+
+        //减数量
+        $('.main').on('click', '.box .sub', function(e){
+            var $box = $(this).closest('.box');
+            var num = parseInt($box.data('num'))
+            if(num > 1){
+                num -= 1;
+                $box.data('num', num)
+                $box.find('.num').html(num)
+                countPrice()
+            }
+        })
+        //加
+        $('.main').on('click', '.box .add', function(e){
+            var $box = $(this).closest('.box');
+            var num = parseInt($box.data('num'))
+            num += 1;
+            $box.data('num', num)
+            $box.find('.num').html(num)
+            countPrice()
+        })
+
+        //计算价格 显示
+        countPrice()
+        function countPrice(){
+            var box = $('.main .box');
+            var price = 0; //总价格
+            var len = 0; //选中的个数
+            $.each(box, function(is, el){
+                // if($(el).find('.choose')[0].checked){
+                var num = parseInt($(el).data('num'))
+                var pr = parseFloat($(el).data('price'))
+                len++;
+                price += num * pr;
+                // }
+                $('#allPrice').html('￥' + price)
+            })
+            price = parseFloat(price.toFixed(2))
+            /* if(len === box.length){
+                 $('.ch-lab').addClass('on')
+                 $('#ch-all')[0].checked = true
+             }else{
+                 $('.ch-lab').removeClass('on')
+                 $('#ch-all')[0].checked = false
+             }
+             if(price > 0){
+                 $('.floor .jies').addClass('on')
+             }else{
+                 $('.floor .jies').removeClass('on')
+             }*/
+            $('#allPrice').html('￥' + price)
+        }
+
+
+    })
+
+</script>
+</html>

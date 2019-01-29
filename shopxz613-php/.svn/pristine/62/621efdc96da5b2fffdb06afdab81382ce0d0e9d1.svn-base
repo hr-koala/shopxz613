@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>填写信息</title>
+    <link rel="stylesheet" type="text/css" href="css/ui-dialog.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body class="page-with1 page-bankcard">
+<header id="header" class="">
+    <div class="icon-back"></div>
+    <h5>选择银行卡</h5>
+</header>
+
+<div class="container" id="all">
+    <div class="main">
+        <div class="box-bank yh">
+            <div class="yh-lf">
+                <div class="yh-img">
+                    <img src="images/icon_zhaoshang.png">
+                </div>
+                <div class="yh-name">
+                    <div class="yh-tit">招商银行</div>
+                    <div class="yh-txt">尾号3655储蓄卡</div>
+                </div>
+            </div>
+            <div class="bankcard-rg bankcard-rg-active">
+
+            </div>
+        </div>
+        <div class="box-bank yh">
+            <div class="yh-lf">
+                <div class="yh-img">
+                    <img src="images/icon_zhaoshang.png">
+                </div>
+                <div class="yh-name">
+                    <div class="yh-tit">招商银行</div>
+                    <div class="yh-txt">尾号3655储蓄卡</div>
+                </div>
+            </div>
+            <div class="bankcard-rg">
+
+            </div>
+        </div>
+        <div class="box-bank yh">
+            <div class="yh-lf">
+                <div class="yh-img">
+                    <img src="images/icon_zhaoshang.png">
+                </div>
+                <div class="yh-name">
+                    <div class="yh-tit">招商银行</div>
+                    <div class="yh-txt">尾号3655储蓄卡</div>
+                </div>
+            </div>
+            <div class="bankcard-rg">
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="btn-box">
+        <a href="#" type="button" class="btn add-btn">添加银行卡</a>
+    </div>
+</div>
+
+</body>
+
+<script type="text/javascript" src="js/dialog-plus-min.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script>
+
+    $(".page-bankcard .box-bank").on("click",function () {
+        $(this).find(".bankcard-rg").addClass("bankcard-rg-active")
+        $(this).siblings(".box-bank").find(".bankcard-rg").removeClass("bankcard-rg-active")
+    })
+
+
+
+</script>
+</html>

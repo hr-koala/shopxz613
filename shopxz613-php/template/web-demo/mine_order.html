@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>我的订单</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body class="page-miorder">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>我的订单</h5>
+</header>
+
+<div class="container">
+    <div class="head">
+        <ul class="flex-row">
+            <li data-index="0" >全部</li>
+            <li data-index="1" class="on">待付款</li>
+            <li data-index="2">待发货</li>
+            <li data-index="3">待收货</li>
+            <li data-index="4">已完成</li>
+        </ul>
+    </div>
+
+    <div class="no-data">
+        <img src="images/icon-null-order.png">
+    </div>
+    <div class="list has-data">
+
+        <div class="box">
+            <!--<div class="state">待付款</div>-->
+            <div class="tit flex-row">
+                <div class="bianh">订单编号：123</div>
+                <div class="state">待付款</div>
+            </div>
+            <ul>
+                <li class="goods">
+                    <div class="item flex-row">
+                        <a href="#">
+                            <div class="img"><img src="images/prod2.png" alt=""></div>
+                            <div class="right flex-column">
+                                <div class="name">V脸套装（V脸霜+脸神器+唤醒面膜）V脸套装（V脸霜+脸神器+唤醒面膜）</div>
+                                <div class="bot">
+                                    <div class="spec">规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML</div>
+                                    <div class="flex-row">
+                                        <div class="price">￥100</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="num">x1</div>
+                        </a>
+                    </div>
+                </li>
+                <li class="goods">
+                    <div class="item flex-row">
+                        <a href="#">
+                            <div class="img"><img src="images/prod2.png" alt=""></div>
+                            <div class="right flex-column">
+                                <div class="name">V脸套装（V脸霜+脸神器+唤醒面膜）</div>
+                                <div class="bot">
+                                    <div class="spec">规格:100ML</div>
+                                    <div class="flex-row">
+                                        <div class="price">￥100</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="num">x1</div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="money">
+                <div class=""> 共1件商品</div>
+                <div class="money-total">合计:<span class="money-total-price">￥100</span></div>
+            </div>
+            <div class="order-time">
+                <div class=""> 订单时间：2018.12.26 15:35</div>
+            </div>
+            <div class="btn-row">
+                <button type="button" class="btn btn-cancel">取消订单</button>
+                <button type="button" class="btn bg-blue">支付订单</button>
+                <button type="button" class="btn btn-detail">订单详情</button>
+                <button type="button" class="btn btn-logist">查看物流</button>
+            </div>
+        </div>
+        <div class="box">
+            <!--<div class="state">待付款</div>-->
+            <div class="tit flex-row">
+                <div class="bianh">订单编号：123</div>
+                <div class="state">待付款</div>
+            </div>
+            <ul>
+                <li class="goods">
+                    <div class="item flex-row">
+                        <a href="#">
+                            <div class="img"><img src="images/prod2.png" alt=""></div>
+                            <div class="right flex-column">
+                                <div class="name">V脸套装（V脸霜+脸神器+唤醒面膜）V脸套装（V脸霜+脸神器+唤醒面膜）</div>
+                                <div class="bot">
+                                    <div class="spec">规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML</div>
+                                    <div class="flex-row">
+                                        <div class="price">￥100</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="num">x1</div>
+                        </a>
+                    </div>
+                </li>
+                <li class="goods">
+                    <div class="item flex-row">
+                        <a href="#">
+                            <div class="img"><img src="images/prod2.png" alt=""></div>
+                            <div class="right flex-column">
+                                <div class="name">V脸套装（V脸霜+脸神器+唤醒面膜）</div>
+                                <div class="bot">
+                                    <div class="spec">规格:100ML</div>
+                                    <div class="flex-row">
+                                        <div class="price">￥100</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="num">x1</div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="money">
+                <div class=""> 共1件商品</div>
+                <div class="money-total">合计:<span class="money-total-price">￥100</span></div>
+            </div>
+            <div class="order-time">
+                <div class=""> 订单时间：2018.12.26 15:35</div>
+            </div>
+            <div class="btn-row">
+                <button type="button" class="btn btn-cancel">取消订单</button>
+                <button type="button" class="btn bg-blue">支付订单</button>
+                <button type="button" class="btn btn-detail">订单详情</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="wuliu">
+        <div class="wuliu-stats">
+            <div class="wuliu-top">
+                <p class="wuliu-tit">已签收</p>
+                <div class="box-top">
+                    <div class="lf">
+                        <div class="shop-img">
+                            <img src="images/prod2.png">
+                        </div>
+                        <div class="shop-txt">共一件商品</div>
+                    </div>
+                    <div class="rg">
+                        <p>V脸套装（V脸霜+脸神器+唤醒面膜）V脸套装（V脸霜+脸神器+唤醒面膜）V脸套装（V脸霜+脸神器+唤醒面膜）</p>
+                        <div class="yuantong">圆通速递：884824565412525661</div>
+                        <div class="tel">官方电话：95333</div>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="wuliu-con">
+                <li class="wuliu-box">
+                    <div class="time">
+
+                    </div>
+                    <div class="stats shou"></div>
+                    <div class="wuliu-info">
+                        <div class="wuliu-info-tit"></div>
+                        <div class="yun-info">
+                            <div class="yun-info1-yuan"></div>
+                            [[收货地址]湖北省武汉市洪山区 关山大道  光谷天
+                            地   坐标城D区18栋
+                        </div>
+                    </div>
+                </li>
+                <li class="wuliu-box">
+                    <div class="time">
+                        <div class="day">06-07</div>
+                        <div class="hour">11:12</div>
+                    </div>
+                    <div class="stats"></div>
+                    <div class="wuliu-info">
+                        <div class="wuliu-info-tit">已签收</div>
+                        <div class="yun-info">
+                            <div class="yun-info1-yuan"></div>
+                            [武汉市]湖北省武汉市洪山区 关山大道  光谷天地
+                            已签收  签收人:转入代办点，感谢使用圆通速递，
+                            期待再次为您服务
+                        </div>
+                    </div>
+                </li>
+                <li class="wuliu-box">
+                    <div class="time">
+                        <div class="day">06-07</div>
+                        <div class="hour">11:12</div>
+                    </div>
+                    <div class="stats"></div>
+                    <div class="wuliu-info">
+                        <div class="wuliu-info-tit">派送中</div>
+                        <div class="yun-info">
+                            <div class="yun-info1-yuan"></div>
+                            [武汉市]湖北省武汉市洪山区派件员：<span>李海磊131
+                            35954881</span>正在为您派件
+                        </div>
+                    </div>
+                </li>
+                <li class="wuliu-box">
+                    <div class="time">
+                        <div class="day">06-07</div>
+                        <div class="hour">11:12</div>
+                    </div>
+                    <div class="stats"></div>
+                    <div class="wuliu-info">
+                        <div class="wuliu-info-tit">运输中</div>
+                        <div class="yun-info">
+                            <div class="yun-info1-yuan"></div>
+                            湖北省武汉市洪山区 光谷天地 已收入
+                        </div>
+                        <!--<div class="yun-info1">
+                            <div class="yun-info1-yuan"></div>
+                            武昌转运公司 已发出，下一站 湖北省武汉市武昌
+                            区民族大道
+                        </div>
+                        <div class="yun-info1">
+                            <div class="yun-info1-yuan"></div>
+                            武昌转运中心公司  已收入
+                        </div>-->
+                    </div>
+                </li>
+                <li class="wuliu-box">
+                    <div class="time">
+                        <div class="day">06-07</div>
+                        <div class="hour">11:12</div>
+                    </div>
+                    <div class="stats"></div>
+                    <div class="wuliu-info">
+                        <div class="wuliu-info-tit"></div>
+                        <div class="yun-info">
+                            <div class="yun-info1-yuan"></div>
+                            武昌转运公司 已发出，下一站 湖北省武汉市武昌
+                            区民族大道
+                        </div>
+                    </div>
+                </li>
+                <li class="wuliu-box">
+                    <div class="time">
+                        <div class="day">06-07</div>
+                        <div class="hour">11:12</div>
+                    </div>
+                    <div class="stats"></div>
+                    <div class="wuliu-info">
+                        <div class="wuliu-info-tit"></div>
+                        <div class="yun-info">
+                            <div class="yun-info1-yuan"></div>
+                            武昌转运公司 已发出，下一站 湖北省武汉市武昌
+                            区民族大道
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="bot-del">
+            <img src="images/icon_close.png">
+        </div>
+    </div>
+
+
+    <div class="mask"></div>
+    
+</div>
+    
+
+
+<footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  5;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+
+</body>
+<script>
+
+$(function(){
+    $('.head ul li').on('click', function(){
+        var index = $(this).data('index')
+        $(this).addClass("on").siblings().removeClass('on')
+    })
+
+    $('.page-miorder .box .btn-cancel').on('click', function(){
+        $(this).parent().parent(".box").remove()
+        boxlen()
+    })
+    boxlen()
+    function boxlen() {
+        console.log($(".page-miorder .box").length)
+        if($(".page-miorder .box").length == 0){
+            $(".page-miorder .has-data").hide()
+            $(".page-miorder .no-data").show()
+        }else {
+            $(".page-miorder .has-data").show()
+            $(".page-miorder .no-data").hide()
+        }
+    }
+
+    $(".page-miorder .btn-logist").on("click",function () {
+        $(" .mask").show()
+        $(" .wuliu").show()
+    })
+    $(".page-miorder .bot-del img").on("click",function () {
+        $(" .mask").hide()
+        $(" .wuliu").hide()
+    })
+    console.log($(" .wuliu-info-tit").text())
+    for(var i=0;i<$(" .wuliu-info-tit").length;i++){
+
+        if($(" .wuliu-info-tit").eq(i).text() == "已签收"){
+            $(" .wuliu-box .stats").eq(i).addClass("qianshou")
+            $(".yun-info div").eq(i).removeClass("yun-info1-yuan")
+            console.log(i)
+        }
+        if($(" .wuliu-info-tit").eq(i).text() == "派送中"){
+            $(" .wuliu-box .stats").eq(i).addClass("pai")
+            $(".yun-info div").eq(i).removeClass("yun-info1-yuan")
+            console.log(i)
+        }
+        if($(" .wuliu-info-tit").eq(i).text() == "运输中"){
+            $(" .wuliu-box .stats").eq(i).addClass("yun")
+            $(".yun-info div").eq(i).removeClass("yun-info1-yuan")
+            console.log(i)
+        }
+    }
+
+
+
+
+})
+
+</script>
+</html>

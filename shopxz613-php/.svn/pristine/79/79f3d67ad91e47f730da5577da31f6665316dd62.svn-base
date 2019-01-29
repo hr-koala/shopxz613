@@ -1,0 +1,307 @@
+<include file="public/header" title="升级代理"  body="page-cart page-report-cart page-purch page-fill-info"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/tonghaoran/css/common.css">
+<link rel="stylesheet" type="text/css" href="__STATIC__/tonghaoran/css/mr_style.css">
+<style type="text/css">
+.btn-submit .sub{
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: 1.75rem;
+    line-height: 1.7rem;
+    background-color: #2cd0b5;
+    border-radius: 0.85rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #fefefe;
+    margin-bottom: 1rem;
+}
+</style>
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>升级代理</h5>
+</header>
+
+<div class="container" id="all">
+    <div class="dealer-con">
+        <div class="dealer">
+            <div  class="dealer-img" >
+                <img src="__STATIC__/tonghaoran/images/proxy{$num}.png"/>
+                <div class="dealer-img-txt">
+                    <p class="p1">{$upgrade_suite[level_name]}</p>
+                    <p class="p2">{$upgrade_suite[pinyin]}</p>
+                </div>
+            </div>
+            <div class="dealer-txt">成为{$upgrade_suite[level_name]}</div>
+            <div class="dealer-num">¥ {:substr($upgrade_suite[amount],0,-3)}</div>
+        </div>
+        <div class="dealer-stats">
+            {$upgrade_suite[describe]}
+        </div>
+
+    </div>
+    <div class="taocan">产品列表</div>
+    <div class="main" v-if="2<3">
+
+        <volist name="goods_info" id="goods">
+            <div class="list">
+                <div class="box flex-row" data-num="1" data-price="{$goods[shop_price]}">
+                    <div class="img"><img src="{$goods[original_img]}" alt=""></div>
+                    <div class="right flex-column">
+                        <div class="name">{$goods[goods_name]}</div>
+                        <!-- <div class="spec">规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML</div> -->
+                        <div class="sbot flex-row">
+                            <div class="price">¥{$goods[shop_price]}</div>
+                            <div class="flex-row" style="color: #1c1c1c;">X{$goods_num[$goods[goods_id]]}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </volist>
+
+        <if condition="($user_info[level] eq 2) AND (I('id') neq 2)">
+            <div class="inp-box shop_show">
+                <label for = "storename">店铺名称</label>
+                <input type="text" name="" id="storename" value="" placeholder="请输入您的店铺名称">
+            </div>
+            <div class="inp-box shop_show">
+                <label for = "storeintroduction">店铺介绍</label>
+                <input type="text" name="" id="storeintroduction" value="" placeholder="请输入店铺介绍">
+            </div>
+            <div class="inp-logo flex-row shop_show">
+                <div class="left">
+                    <span>店铺LOGO</span>
+                </div>
+                <div class="logo-camera">
+                    <img src="__STATIC__/tonghaoran/images/icon_camera.png">
+                </div>
+            </div>
+        </if>
+
+        <div class="btn btn-submit" style="margin-top: 1rem;">
+            <button type="submit" class="sub">提交</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="y_avatar">
+    <ul>
+        <li class="photo">
+            <input id="takepicture" type="file" accept="image/*" capture="camera" >拍照上传
+        </li>
+        <li class="album">
+            <input type="file" class="add-img" accept="image/*" value="" />从相册选择
+        </li>
+        <li class="cancel">取消</li>
+    </ul>
+</div>
+
+<div class="mask"></div>
+
+<include file="public/footer"/>
+
+</body>
+
+<script type="text/javascript" src="__STATIC__/tonghaoran/js/vue.js"></script>
+<script type="text/javascript" src="__STATIC__/tonghaoran/js/dialog-plus-min.js"></script>
+<script>
+
+    $(function(){
+        var vm = new Vue({
+            el: '#all'
+        })
+
+        //减数量
+        $('.main').on('click', '.box .sub', function(e){
+            var $box = $(this).closest('.box');
+            var num = parseInt($box.data('num'))
+            if(num > 1){
+                num -= 1;
+                $box.data('num', num)
+                $box.find('.num').html(num)
+                countPrice()
+            }
+        })
+        //加
+        $('.main').on('click', '.box .add', function(e){
+            var $box = $(this).closest('.box');
+            var num = parseInt($box.data('num'))
+            num += 1;
+            $box.data('num', num)
+            $box.find('.num').html(num)
+            countPrice()
+        })
+
+        //计算价格 显示
+        countPrice()
+        function countPrice(){
+            var box = $('.main .box');
+            var price = 0; //总价格
+            var len = 0; //选中的个数
+            $.each(box, function(is, el){
+                var num = parseInt($(el).data('num'))
+                var pr = parseFloat($(el).data('price'))
+                len++;
+                price += num * pr;
+                $('#allPrice').html('￥' + price)
+            })
+            price = parseFloat(price.toFixed(2))
+            $('#allPrice').html('￥' + price)
+        }
+
+
+        // <if condition="($user_info[level] eq 2) AND (I('id') neq 2)">
+            $('.btn-submit').on('click', function(){
+                var level_id = {:I('id')};
+                var user_level = {$user_info[level]};
+                if(user_level == 2 && level_id != 2){
+                    var storename = $('#storename').val();     //店铺名
+                    var storeintroduction = $('#storeintroduction').val();  //店铺介绍
+
+                    if(storename === ''){
+                        dialogFun_two('请输入您的店铺名');
+                        return false;
+                    }
+                    if(storeintroduction === ''){
+                        dialogFun_two('请输入您的店铺介绍');
+                        return false;
+                    }
+                    //店铺logo
+                    var shop_logo = $('.logo-camera img').attr('src');
+                    if(shop_logo == '/template/web/rainbow/static/tonghaoran/images/icon_camera.png'){
+                        dialogFun_two('请上传店铺logo');
+                        return false;
+                    }
+                    var data = {level_id:level_id,storename:storename,storeintroduction:storeintroduction,shop_logo:shop_logo};
+                }else{
+                    var data = {level_id:level_id};
+                }
+                
+                $.post("{:U('cosmetology/Mine/upgrade_again')}", data,function(datas){
+                    var values = JSON.parse(datas);
+                    console.log(values);
+                    if(values['status'] == 1){
+                        dialogFun(values['msg'],"{:U('cosmetology/Mine/index')}");
+                    }else if(values['status'] == 2){
+                        dialogFun(values['msg'],values['info']);
+                    }else{
+                        dialogFun(values['msg']);
+                    }
+                });
+            })
+
+
+
+            //修改logo
+            $(".logo-camera").on("mousedown",function(){
+                $(".y_avatar").show();
+                $(".mask").show();
+            });
+
+
+            // 拍照
+            $(".page-fill-info .photo").on("click",function () {
+                $(".y_avatar").hide();
+                $(".mask").hide();
+            })
+            // 相册
+            $(".page-fill-info .album").on("click",function () {
+                $(".y_avatar").hide();
+                $(".mask").hide();
+            })
+            // 取消
+            $(".page-fill-info .cancel").on("mousedown",function () {
+                $(".y_avatar").hide();
+                $(".mask").hide();
+            })
+
+
+            $('.page-fill-info').on('change', '.add-img', function(event) {
+                event.stopPropagation();
+                var oFile = this.files[0]
+                var _this = this
+                var fr = new FileReader();
+                var rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+                if (!rFilter.test(oFile.type)) {
+                    errorFun()
+                    return;
+                };
+                // console.log(event.target.value)//target.ownerDocument.value
+                fr.readAsDataURL(oFile);
+
+                fr.onload = function(FREvent) {
+                    console.log(FREvent)
+                    dealImage(FREvent.target.result, {
+                        width : 500
+                    }, function(base){
+                        // console.log(oFile)
+                        // console.log(base)
+                        // $.post("{:U('cosmetology/Mine/uploadPictures')}", {base:base},function(datas){});
+                        $(".page-fill-info .logo-camera img").attr('src',base);
+                    })
+                }
+            })
+
+            function dealImage(path, obj, callback) {
+                var img = new Image();
+                img.src = path;
+                img.onload = function() {
+                    var that = this;
+                    // 默认按比例压缩
+                    var w = that.width,
+                        h = that.height,
+                        scale = w / h;
+                    w = obj.width || w;
+                    h = obj.height || (w / scale);
+                    var quality = 0.7; // 默认图片质量为0.7
+                    //生成canvas
+                    var canvas = document.createElement('canvas');
+                    var ctx = canvas.getContext('2d');
+                    // 创建属性节点
+                    var anw = document.createAttribute("width");
+                    anw.nodeValue = w;
+                    var anh = document.createAttribute("height");
+                    anh.nodeValue = h;
+                    canvas.setAttributeNode(anw);
+                    canvas.setAttributeNode(anh);
+                    ctx.drawImage(that, 0, 0, w, h);
+                    // 图像质量
+                    if (obj.quality && obj.quality <= 1 && obj.quality > 0) {
+                        quality = obj.quality;
+                    }
+                    // quality值越小，所绘制出的图像越模糊
+                    var type = 'image/jpeg'
+                    var str = path.substring(0, path.search(/\;/g))
+                    if(str.search(/(png)/g) >= 0){
+                        type = 'image/png'
+                    }
+                    var base64 = canvas.toDataURL(type, quality);
+                    // 回调函数返回base64的值
+                    callback(base64);
+                    // $.post("{:U('cosmetology/Mine/uploadPictures')}", {base64:base64},function(datas){});
+                }
+            }
+
+    })
+
+function dialogFun(str,url=''){
+    dialog({
+        width: 280,
+        title: '提示',
+        content: str,
+        cancel: false,
+        okValue: '确定',
+        ok: function(){
+            if(url!==''){
+                window.location.href=url;
+            }
+        }
+    }).showModal();
+}
+
+function dialogFun_two(str){
+    webToast(str,"middle",1000);
+}
+
+</script>
+</html>

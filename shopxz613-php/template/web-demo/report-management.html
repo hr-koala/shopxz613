@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>报单管理</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/FlexoCalendar.css">
+    <script src="js/FlexoCalendar.js"></script>
+</head>
+<body class="page-income page-manage">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>报单管理</h5>
+</header>
+
+<div class="container">
+    <!--<div class="no-data">
+        <img src="images/icon_income_no.png">
+        <div class="no-data-txt">
+            暂无!
+        </div>
+    </div>-->
+    <div class="top">
+        <div class="num"><span>3</span></div>
+        <div class="name">审核通过人数</div>
+        <ul class="tit flex-row">
+            <li class="box">
+                <p class="p1">10000</p>
+                <p class="p2">累计报单币</p>
+            </li>
+            <li class="box">
+                <p class="p1">200</p>
+                <p class="p2">未使用</p>
+            </li>
+            <li class="box">
+                <p class="p1">100</p>
+                <p class="p2">已使用</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <div class="manage-top">
+            <div class="total">
+                <div class="all on">全部</div>
+                <div class="all">提交待审核</div>
+                <div class="all">审核通过</div>
+            </div>
+        </div>
+
+        <div class="no-data">
+            <img src="images/icon_income_no.png">
+            <div class="no-data-txt">
+                暂无!
+            </div>
+        </div>
+        <div class="has-data">
+            <ul>
+                <li class="manage-box">
+                    <div class="manage-box-left">
+                        <div class="manage-img">
+                            <img src="images/prod6.png">
+                        </div>
+                        <div class="manage-box-txt">
+                            <div class="manage-box-left-name">
+                                点点的光
+                            </div>
+                            <div class="manage-box-left-date">
+                                2018-01-01
+                            </div>
+                        </div>
+                    </div>
+                    <div class="baodanbi">
+                        <div class="baodanbi-txt">报单币</div>
+                        <div class="baodanbi-stats">审核通过</div>
+                    </div>
+                    <div class="baodan-num">
+                        <div class="baodanbi-num">+15000</div>
+                        <div class="baodanbi-num-buy"><a href="">去购买</a> </div>
+                    </div>
+                </li>
+                <li class="manage-box">
+                    <div class="manage-box-left">
+                        <div class="manage-img">
+                            <img src="images/prod6.png">
+                        </div>
+                        <div class="manage-box-txt">
+                            <div class="manage-box-left-name">
+                                点点的光
+                            </div>
+                            <div class="manage-box-left-date">
+                                2018-01-01
+                            </div>
+                        </div>
+                    </div>
+                    <div class="baodanbi">
+                        <div class="baodanbi-txt">报单币</div>
+                        <div class="baodanbi-stats">提交待审核</div>
+                    </div>
+                    <div class="baodan-num">
+                        <div class="baodanbi-num">+15000</div>
+                        <div class="baodanbi-num-buy baodanbi-num-shiyong"><a href="">已使用</a> </div>
+                    </div>
+                </li>
+                <li class="manage-box">
+                    <div class="manage-box-left">
+                        <div class="manage-img">
+                            <img src="images/prod6.png">
+                        </div>
+                        <div class="manage-box-txt">
+                            <div class="manage-box-left-name">
+                                点点的光
+                            </div>
+                            <div class="manage-box-left-date">
+                                2018-01-01
+                            </div>
+                        </div>
+                    </div>
+                    <div class="baodanbi">
+                        <div class="baodanbi-txt">报单币</div>
+                        <div class="baodanbi-stats">提交待审核</div>
+                    </div>
+                    <div class="baodan-num">
+                        <div class="baodanbi-num">15000</div>
+                        <div class="baodanbi-num-stats">待发放</div>
+                    </div>
+                </li>
+                <li class="manage-box">
+                    <div class="manage-box-left">
+                        <div class="manage-img">
+                            <img src="images/prod6.png">
+                        </div>
+                        <div class="manage-box-txt">
+                            <div class="manage-box-left-name">
+                                点点的光
+                            </div>
+                            <div class="manage-box-left-date">
+                                2018-01-01
+                            </div>
+                        </div>
+                    </div>
+                    <div class="baodanbi">
+                        <div class="baodanbi-txt">报单币</div>
+                        <div class="baodanbi-stats">提交待审核</div>
+                    </div>
+                    <div class="baodan-num">
+                        <div class="baodanbi-num">15000</div>
+                        <div class="baodanbi-num-stats">待发放</div>
+                    </div>
+                </li>
+                <li class="manage-box">
+                    <div class="manage-box-left">
+                        <div class="manage-img">
+                            <img src="images/prod6.png">
+                        </div>
+                        <div class="manage-box-txt">
+                            <div class="manage-box-left-name">
+                                点点的光
+                            </div>
+                            <div class="manage-box-left-date">
+                                2018-01-01
+                            </div>
+                        </div>
+                    </div>
+                    <div class="baodanbi">
+                        <div class="baodanbi-txt">报单币</div>
+                        <div class="baodanbi-stats">提交待审核</div>
+                    </div>
+                    <div class="baodan-num">
+                        <div class="baodanbi-num">15000</div>
+                        <div class="baodanbi-num-stats">待发放</div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+
+<footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  4;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+<script>
+    $(".page-manage .total .all").on("click",function () {
+        $(".page-manage .total .all").removeClass("on")
+        $(this).addClass("on")
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<include file="public/header" title="升级代理"  body="page-proxy"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/tonghaoran/css/common.css">
+<link rel="stylesheet" type="text/css" href="__STATIC__/tonghaoran/css/mr_style.css">
+<header id="header" class="">
+    <div class="icon-back" onclick="window.location.href='{:U('cosmetology/Mine/index')}'"></div>
+    <h5>升级代理</h5>
+</header>
+
+<div class="container" id="all">
+    <div class="main">
+        <volist name="all_level" id='level' key='key'>
+            <div class="box-proxy i{$key}">
+                <div class="proxy-lf">
+                    <div class="top">成为{$level['level_name']}即可享受优惠价</div>
+                    <div class="bottom">
+                        <div class="proxy-num">
+                            ¥ <span>{:substr($level['amount'],0,-3)}</span>
+                        </div>
+                        <a href="{:U('cosmetology/Mine/apply_agent',['id'=>$level['level_id']])}" class="proxy-btn">立即申请</a>
+                    </div>
+                </div>
+            </div>
+        </volist>
+    </div>
+</div>
+
+<include file="public/footer"/>
+
+</body>
+
+<script type="text/javascript" src="__STATIC__/tonghaoran/js/dialog-plus-min.js"></script>
+<script type="text/javascript" src="__STATIC__/tonghaoran/js/vue.js"></script>
+<script type="text/javascript" src="__STATIC__/tonghaoran/js/jquery.cookie.js"></script>
+<script>
+
+    $(".page-bankcard .box-bank").on("click",function () {
+        $(this).find(".bankcard-rg").addClass("bankcard-rg-active")
+        $(this).siblings(".box-bank").find(".bankcard-rg").removeClass("bankcard-rg-active")
+    })
+
+
+
+</script>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>邀请好友</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body class="page-invite-qrcode">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>邀请好友</h5>
+</header>
+
+<div class="container">
+    <div class="main" id="mbsc">
+        <!--<img src="images/icon_yaoqing_bg.png">-->
+        <div class="invite-qrcode">
+            <div class="mine-code-avatar">
+                <img src="images/prod6.png" />
+            </div>
+            <div class="invite-code-name">
+                <div class="invite-qrcode-name">点点的光邀请你</div>
+                <div class="invite-qrcode-name">注册众美平身</div>
+            </div>
+            <div class="code-qrcode">
+                <img src="images/icon_qrcode.png">
+            </div>
+            <div class="invite-card-txt">
+                新用户扫码注册时 会自
+                动填入您的邀请码
+            </div>
+        </div>
+        <div class="tishi">长按识别二维码</div>
+    </div>
+</div>
+<div class="invite-bottom">
+    <div class="invite-bot-top">
+        <div class="invite-back"></div>
+        <div class="invite-back-txt">邀请卡已准备好，发给你的好友吧！</div>
+    </div>
+    <div class="invite-bot-con">
+        <div class="invite-weixin">
+            <img src="images/icon_weixin.png">
+            <div class="invite-weixin-txt">微信好友</div>
+        </div>
+        <div class="invite-weixin">
+            <img src="images/icon_quan.png">
+            <div class="invite-weixin-txt">朋友圈</div>
+        </div>
+        <a class="invite-weixin invite-bendi">
+            <img src="images/icon_bendi.png">
+            <div class="invite-weixin-txt">保存本地</div>
+        </a>
+    </div>
+</div>
+
+
+<!--
+<footer id="footer-nav"></footer>
+-->
+<script type="text/javascript">var footerNav =  4;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+<script src="js/html2canvas.js"></script>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        function download(){
+            event.preventDefault();
+            var w = $("#mbsc").width();
+            var h = $("#mbsc").innerHeight();
+            html2canvas($("#mbsc"), {
+                width: w,
+                height: h,
+                allowTaint: true,
+                taintTest: false,
+                onrendered: function(canvas) {
+                    canvas.id = "mycanvas";
+                    //生成base64图片数据
+                    var dataUrl = canvas.toDataURL();
+                    var newImg = document.createElement("img");
+                    newImg.src =  dataUrl;
+                    $('.invite-bendi').attr('href', canvas.toDataURL());
+                    $('.invite-bendi').attr('download', 'qrcode.png');
+                    var html_canvas = canvas.toDataURL();
+                    document.body.appendChild(newImg);
+                    document.body.removeChild(newImg)
+                }
+            });
+        }
+        // download()
+
+
+        $(".invite-bendi").click(function() {
+            exportToPic()
+        });
+
+        function exportToPic() {
+            html2canvas($("#mbsc"), {
+                    onrendered: function (canvas) {
+                        var pageData = canvas.toDataURL('image/jpeg', 1.0);
+                        console.log(pageData)
+                        //window.location=(pageData.replace("image/jpeg", "image/octet-stream"));
+                        saveFile(pageData.replace("image/jpeg", "image/octet-stream"),new Date().getTime()+".jpeg");
+                    }
+                }
+            )
+        }
+        var saveFile = function(data, filename) {
+            var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+            save_link.href = data;
+            save_link.download = filename;
+            var event = document.createEvent('MouseEvents');
+            event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+            save_link.dispatchEvent(event);
+        }
+
+
+    })
+
+
+
+
+
+
+
+
+
+</script>
+<!--
+<script type="text/javascript">
+    var oDiv = document.getElementById('mbsc');
+
+
+    html2canvas(oDiv).then(function(canvas) {
+        document.body.appendChild(canvas);
+        var oCavans = document.getElementsByTagName('canvas')[0];
+        var strDataURI = oCavans.toDataURL();
+        downLoadFn(strDataURI);
+        document.body.removeChild(canvas)
+    });
+
+    //判断浏览器类型
+    function myBrowser() {
+        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+        var isOpera = userAgent.indexOf("Opera") > -1;
+        if(isOpera) {
+            return "Opera"
+        }; //判断是否Opera浏览器
+        if(userAgent.indexOf("Firefox") > -1) {
+            return "FF";
+        } //判断是否Firefox浏览器
+        if(userAgent.indexOf("Chrome") > -1) {
+            return "Chrome";
+        }
+        if(userAgent.indexOf("Safari") > -1) {
+            return "Safari";
+        } //判断是否Safari浏览器
+        if(userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
+            return "IE";
+        }; //判断是否IE浏览器
+        if(userAgent.indexOf("Trident") > -1) {
+            return "Edge";
+        } //判断是否Edge浏览器
+    }
+
+    //IE浏览器图片保存本地
+    function SaveAs5(imgURL) {
+        var oPop = window.open(imgURL, "", "width=1, height=1, top=5000, left=5000");
+        for(; oPop.document.readyState != "complete";) {
+            if(oPop.document.readyState == "complete")
+                break;
+        }
+        oPop.document.execCommand("SaveAs");
+        oPop.close();
+    }
+
+    // chrome14+,firefox20+,pera15+,Edge 13+,Safari未实现
+    function download(strDataURI) {
+        var link = document.createElement('a');
+        link.download = 'erweima.png';
+        link.href = strDataURI;
+        document.body.appendChild(link);
+    };
+    $(".invite-bendi").click(function() {
+        download()
+    });
+
+    function downLoadFn(url) {
+        if(myBrowser() === "IE" || myBrowser() === "Edge") {
+            SaveAs5(url);
+        } else {
+            download(url);
+        }
+    }
+</script>
+-->
+
+
+<!--
+<script type="text/javascript">
+function creatqr() {
+    var qrtxt = "www.baidu.com";
+    var srsize = 100;
+    $(".code-qrcode").html("");
+    $('.code-qrcode').qrcode({
+        width: srsize,
+        height: srsize,
+        text: qrtxt
+    });
+}
+
+function exportCanvasAsPNG(canvas, fileName) {
+//传进来的canvas参数为img src的base64编码字符
+     var MIME_TYPE = "image/png";
+     var dlLink = document.createElement('a');
+    dlLink.download = fileName;
+    dlLink.href = canvas.toDataURL("image/png");
+    dlLink.dataset.downloadurl = [MIME_TYPE, dlLink.href].join(':');
+    document.body.appendChild(dlLink);
+    dlLink.click();
+    document.body.removeChild(dlLink);
+}
+
+$(function () {
+    creatqr();
+    $(".invite-bendi").click(function () {
+        console.log("11")
+        exportCanvasAsPNG($(".code-qrcode").find("canvas")[0], "qrcoder.png");
+    });
+});
+</script>-->
+<script>
+    $(function () {
+        $(".page-invite-qrcode").on("click",".code-qrcode",function () {
+            $(".page-invite-qrcode .invite-bottom").show()
+        })
+        $(".page-invite-qrcode").on("click",".invite-back",function () {
+            $(".page-invite-qrcode .invite-bottom").hide()
+        })
+    })
+</script>
+</body>
+</html>

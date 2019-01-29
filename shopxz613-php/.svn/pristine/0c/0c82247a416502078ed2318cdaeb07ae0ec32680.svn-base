@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>新增收货地址</title>
+    <link rel="stylesheet" type="text/css" href="css/ui-dialog.css">
+    <link rel="stylesheet" type="text/css" href="css/mpicker.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body class="page-adsedit">
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>新建地址</h5>
+</header>
+
+<form onsubmit="return onSubmitFun();" name="formAds" method="post" >
+
+    <div class="main">
+        <div class="inp-box flex-row">
+            <div class="name">姓名</div>
+            <div class="right">
+                <input type="text" name="username" value="" placeholder="请填写姓名">
+            </div>
+        </div>
+        <div class="inp-box flex-row">
+            <div class="name">手机号码</div>
+            <div class="right">
+                <input type="tel" name="usertel" value="" placeholder="请输入正确的11位手机号码">
+            </div>
+        </div>
+        <div class="inp-box flex-row inp-qy">
+            <div class="name">地址</div>
+            <div class="right">
+                <input type="text" class="select-value" value="" placeholder="省市区/县信息" readonly>
+                <div class="addr flex-row" id="addr1">
+                    <!--<div type="text" class="sheng" name="prov" value="" placeholder="选择省"></div>
+                    <div type="text" class="shi" name="city" value="" placeholder="选择市"></div>
+                    <div type="text" class="qu" name="area" value="" placeholder="选择区"></div>-->
+                    <input type="text" class="sheng" name="prov" value="" placeholder="选择省">
+                    <input type="text" class="shi" name="city" value="" placeholder="选择市">
+                    <input type="text" class="qu" name="area" value="" placeholder="选择区">
+                </div>
+            </div>
+        </div>
+        <div class="inp-box flex-row">
+            <div class="name">详细地址</div>
+            <div class="right">
+                <input type="text" name="address" value="" placeholder="详细地址信息，如街道、楼牌号等">
+            </div>
+        </div>
+        <div class="default_address">
+            <div  class="default_address-img on">
+                <input type="checkbox" name="select" checked>
+            </div>
+            <div class="default_address-txt">
+                设为默认地址
+            </div>
+        </div>
+        <div class="btn-box">
+            <button type="submit" class="btn-blue">保存</button>
+        </div>
+    </div>
+
+</form>
+
+    <div class="submit-dialog"></div>
+    <div class="submit-dialog-con">
+        <div class="submit-dialog-tit">
+            提示
+        </div>
+        <div class="submit-dialog-txt">
+            确定保存？
+        </div>
+        <div class="submit-dialog-btn">
+            <div class="submit-dialog-cancel">取消</div>
+            <div class="submit-dialog-confirm">确定</div>
+        </div>
+    </div>
+
+
+
+</body>
+<script type="text/javascript" src="js/dialog-plus-min.js"></script>
+<script type="text/javascript" src="js/json.js"></script>
+<script type="text/javascript" src="js/mPickerBeta.js"></script>
+
+<script>
+    $(function(){
+        //所在区域
+        var sheng, shi ,qu;
+
+        $('.select-value').mPicker({
+            level:3,
+            // dataJson: city3,
+            dataJson: city5,
+            Linkage:true,
+            rows:6,
+            idDefault:true,
+            splitStr:'-',
+            header:'<div class="mPicker-header"><div class="mPicker-cancel">取消</div><div class="mPicker-confirm">确定</div></div>',
+            confirm:function(){
+                var id1= $('.select-value').data('id1');
+                var id2 = $('.select-value').data('id2');
+                var id3 = $('.select-value').data('id3');
+
+                // console.log(city5[id1].id)
+               var shengID = city5[id1].id;
+                var shiID = city5[id1].city[id2].id;
+                var quID = city5[id1].city[id2].district[id3].id;
+                console.log(shengID + '  ' + shiID + '  ' + quID);
+                sheng = city5[id1].name;
+                shi = city5[id1].city[id2].name;
+                qu = city5[id1].city[id2].district[id3].name;
+                console.log(sheng+" "+ shi +" "+ qu)
+                $('#addr1').children('.sheng').attr({"value": shengID});
+                $('#addr1').children('.shi').attr({"value": shiID});
+                $('#addr1').children('.qu').attr({"value": quID});
+                console.log($('#addr1').children('.qu').val())
+            },
+            cancel:function(){
+            }
+        })
+
+        $(".default_address-img").click(function () {
+            // console.log($(this).hasClass("on"))
+            if($(this).hasClass("on")){
+                $(this).removeClass("on")
+            }else {
+                $(this).addClass("on")
+            }
+            if($('.default_address-img input').attr('checked') == 'checked'){
+                $('.default_address-img input').removeAttr('checked');
+            }else{
+                $('.default_address-img input').attr('checked','checked');
+            }
+            console.log($(this).hasClass("on"))
+            console.log($(".default_address-img input").attr("checked") == "checked")
+        })
+
+   })
+
+   function onSubmitFun(){
+       var form = document.forms['formAds'];
+       var username = form['username'].value;
+       var usertel = form['usertel'].value;
+       var prov = form['prov'].value;
+       var address = form['address'].value;
+       if(username === ''){
+           dialogFun('请输入您的姓名')
+           return false;
+       }
+       if(usertel === ''){
+           dialogFun('请输入您的电话')
+           return false;
+       }
+       if(prov === ''){
+           dialogFun('请输入您的所在地区')
+           return false;
+       }
+       if(address === ''){
+           dialogFun('请输入您的详细地址')
+           return false;
+       }
+       return true;
+   }
+
+   function dialogFun(str){
+       dialog({
+           width: 280,
+           title: '提示',
+           content: str,
+           cancel: false,
+           okValue: '确定',
+           ok: function(){
+           }
+       }).showModal();
+   }
+
+
+
+
+
+</script>
+
+
+</html>

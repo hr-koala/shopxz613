@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>我的直推</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body class="page-direct">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>我的直推</h5>
+</header>
+
+<div class="container">
+    <div class="top">
+        <div class="num"><span>30</span></div>
+        <div class="name">我的直推（人）</div>
+    </div>
+    <div class="invite-con">
+        <div class="con-top">
+            <div class="time">注册时间</div>
+            <div class="time">手机号码</div>
+            <div class="time">当前等级</div>
+            <div class="time">代理人数</div>
+        </div>
+        <ul class="con-p">
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">销售经理</div>
+                <div class="time">5</div>
+            </li>
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">销售经理</div>
+                <div class="time">5</div>
+            </li>
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">代理</div>
+                <div class="time">1</div>
+            </li>
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">销售经理</div>
+                <div class="time">5</div>
+            </li>
+        </ul>
+
+    </div>
+    <div class="invite-no">
+        <img src="images/icon_no-daili.png">
+        <div class="no-num">
+            暂无，去努力邀请好友吧~
+        </div>
+    </div>
+</div>
+
+
+<footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  4;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+
+<script>
+    $(function () {
+        console.log($(".top .num span").text())
+        if($(".top .num span").text() == 0){
+            $(".invite-con").hide()
+            $(".invite-no").show()
+        }else {
+            $(".invite-con").show()
+            $(".invite-no").hide()
+        }
+    })
+</script>
+
+</body>
+</html>

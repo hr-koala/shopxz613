@@ -1,0 +1,70 @@
+<include file="public/header" title="提货"  body="page-cart page-pick"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/tonghaoran/css/common.css">
+<link rel="stylesheet" type="text/css" href="__STATIC__/tonghaoran/css/mr_style.css">
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>提货</h5>
+</header>
+
+<div class="container" id="all">
+    <div class="main">
+        <div class="list">
+            <div class="box flex-row" data-num="1" data-price="895">
+                <div class="img"><img src="{$goods_info[original_img]}" alt=""></div>
+                <div class="right flex-column">
+                    <div class="name">{$goods_info[goods_name]}</div>
+                    <div class="spec"></div>
+                    <div class="sbot flex-row">
+                        <div class="kucun-num">库存数量：{$stock_info[stock]}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <if condition="$address neq null">
+            <a href="mine_address.html" class="address">
+                <div class="lf">
+                    <div class="address-dingwei">
+                        <img src="__STATIC__/tonghaoran/images/icon_dingwei.png">
+                    </div>
+                    <div class="address-con">
+                        <div class="tit">
+                            <div class="name">收货人：{$address['consignee']}</div>
+                            <div class="tel">{$address['mobile']}</div>
+                        </div>
+                        <div class="address-txt">收货地址：{$regionList[$address['province']]}{$regionList[$address['city']]}{$regionList[$address['district']]}{$regionList[$address['twon']]}{$address['address']}</div>
+                    </div>
+                </div>
+                <div class="rg"></div>
+            </a>
+        <else />
+            <!-- {:U('cosmetology/User/newAddress',['url'=>'firm_order_url'])} -->
+            <a class="new-address" href="">
+                <div class="new-imgplus">
+                    <img src="__STATIC__/xiong/img/jia.png">
+                </div>
+                <span class="new-text">新建收货地址</span>
+                <span class="new-right"></span>
+            </a>
+        </if>
+
+        <div class="pick-num">
+            <div>提货数量</div>
+            <input class="inp-num" type="text" placeholder="请输入提货数量">
+        </div>
+        <a href="" class="btn">确认提货</a>
+    </div>
+
+
+</div>
+
+<include file="public/footer"/>
+
+</body>
+
+<script type="text/javascript" src="__STATIC__/tonghaoran/js/vue.js"></script>
+<script>
+
+    
+</script>
+</html>

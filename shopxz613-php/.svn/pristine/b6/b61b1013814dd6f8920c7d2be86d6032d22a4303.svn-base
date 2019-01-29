@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>等级说明</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body class="page-level">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>等级说明</h5>
+</header>
+
+<div class="container">
+    <div class="top">
+        <div class="top-level">
+            <div class="top-box">
+                <div class="level-icon">
+                    <!--<div class="level-icon-img">
+                        <img src="images/icon_unit.png"/>
+                    </div>-->
+                    <div class="daili"></div>
+                    <div class="level-line"></div>
+                    <div class="daili">
+                        <div data-index="0" class="level-icon-img">
+                            <img src="images/icon_jingli.png"/>
+                        </div>
+                    </div>
+                    <div class="level-line"></div>
+                    <div class="daili">
+                        <div data-index="1" class="level-icon-img">
+                            <img src="images/icon_unit.png"/>
+                        </div>
+                    </div>
+                    <div class="level-line"></div>
+                    <div class="daili">
+                        <div data-index="2" class="level-icon-img">
+                            <img src="images/icon_zongjian.png"/>
+                        </div>
+                    </div>
+                    <div class="level-line"></div>
+                    <div class="daili">
+                        <div data-index="3" class="level-icon-img">
+                            <img src="images/icon_zongcai.png"/>
+                        </div>
+                    </div>
+                    <div class="level-line"></div>
+                    <div class="daili">
+                        <div data-index="4" class="level-icon-img">
+                            <img src="images/icon_gudong.png"/>
+                        </div>
+                    </div>
+                    <!--<div class="level-line"></div>-->
+                </div>
+                <div class="level-txt">
+                    <div class="daili-con">
+                        <div class="daili-txt">代理</div>
+                        <div class="daili-num">0</div>
+                    </div>
+                    <div class="daili-con">
+                        <div class="daili-txt">销售经理</div>
+                        <div class="daili-num">5</div>
+                    </div>
+                    <div class="daili-con">
+                        <div class="daili-txt">销售部长</div>
+                        <div class="daili-num">50</div>
+                    </div>
+                    <div class="daili-con">
+                        <div class="daili-txt">销售总监</div>
+                        <div class="daili-num">500</div>
+                    </div>
+                    <div class="daili-con">
+                        <div class="daili-txt">销售总裁</div>
+                        <div class="daili-num">1000</div>
+                    </div>
+                    <div class="daili-con">
+                        <div class="daili-txt">销售股东</div>
+                        <div class="daili-num">5000</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="name">再加入150名代理成为销售总监</div>
+    </div>
+    <div class="main">
+        <div class="grade">
+            <div class="grade-tit">
+                    <img src="images/icon_grade.png">
+            </div>
+            <ul class="grade-con">
+                <li class="grade-box">
+                    <div class="grade-img">
+                        <img src="images/icon_jingli.png">
+                    </div>
+                    <div class="grade-txt">
+                        <div class="grade-txt-name">销售经理</div>
+                        <div class="grade-txt-p">直推五名代理 团队达到二十五人  2%</div>
+                    </div>
+                </li>
+                <li class="grade-box">
+                    <div class="grade-img">
+                        <img src="images/icon_buzhang.png">
+                    </div>
+                    <div class="grade-txt">
+                        <div class="grade-txt-name">销售部长</div>
+                        <div class="grade-txt-p">直推出现三名经理  4%</div>
+                    </div>
+                </li>
+                <li class="grade-box">
+                    <div class="grade-img">
+                        <img src="images/icon_zongjian.png">
+                    </div>
+                    <div class="grade-txt">
+                        <div class="grade-txt-name">销售总监</div>
+                        <div class="grade-txt-p"> 直推出现三名部长 6%</div>
+                    </div>
+                </li>
+                <li class="grade-box">
+                    <div class="grade-img">
+                        <img src="images/icon_zongcai.png">
+                    </div>
+                    <div class="grade-txt">
+                        <div class="grade-txt-name">销售总裁</div>
+                        <div class="grade-txt-p">直推出现三名总监 8%</div>
+                    </div>
+                </li>
+                <li class="grade-box">
+                    <div class="grade-img">
+                        <img src="images/icon_gudong.png">
+                    </div>
+                    <div class="grade-txt">
+                        <div class="grade-txt-name">销售股东</div>
+                        <div class="grade-txt-p">直推出现三名总裁 10%</div>
+                    </div>
+                </li>
+                <div class="advance">
+                    晋级奖 ： 根据业绩的提升，职位和利益随之提升差额奖
+                </div>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+<footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  4;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+
+<script>
+    $(function () {
+            for(let i=0;i<$(".page-level .level-icon-img").length; i++){
+                let ind = $(".page-level .level-icon-img").eq(i).attr("data-index")
+                console.log(ind)
+                $(".page-level .level-icon-img").hide()
+                if(ind == 2){
+                    // $(".page-level .level-icon-img").hide()
+                    $(".page-level .level-icon-img").eq(i).show()
+                    return;
+                }
+            }
+
+
+
+        //设置  手指拖拽进度滑块 的事件
+        // moveUp()
+        function moveUp() {
+            var  move = false;
+            //开始按下手指事件
+            $(".top-box").on("mousedown", function (e) {
+                move = true;
+                e=e||window.e;
+                e.preventDefault();
+                _x = e.pageX - parseInt($(".top-box").css("left"));
+                _y = e.pageY;
+
+                console.log(_x+"=="+_y);
+            })
+            //移动手指事件
+            $(".top-box").on("mousemove", function (e) {
+                e.preventDefault();
+                if (move) {
+                    x = e.pageX - _x;
+                    $(".top-box").css("left", x+"px");
+                }
+            })
+            //松开手指事件
+            $(".top-box").on("mouseup", function (e) {
+                e.preventDefault();
+                move = false;
+            })
+        }
+    })
+</script>
+
+
+</body>
+</html>

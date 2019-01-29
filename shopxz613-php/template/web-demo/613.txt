@@ -1,0 +1,28 @@
+
+replenishment.html                   补货
+replenishment-center.html            补货中心
+
+replenishment-center2.html           补货中心
+replenishment-reward.html             补货奖励
+
+
+613cloud.html                         云库存
+613distri-commission.html             销售金额（累计/冻结）
+613expenses.html                      消费记录
+613market-reward.html                 市场奖励
+613pick.html                            提货
+
+613pick1.html                        提货
+613pick-order.html                   销售订单
+613proxy.html                        代理
+613proxy-center.html                 代理中心
+
+613recharge.html                     充值完成
+613audit.html                        审核资料(资料已提交）
+
+613apply-agent.html                  代理充值
+613fillin-info.html                   填写资料
+
+613reward-details.html                奖励明细
+
+613promotion-award.html               推广奖励

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>我的团队</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mr_style.css">
+    <link rel="stylesheet" href="css/dropload.css">
+    <script src="js/dropload.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body class="page-team">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>我的团队</h5>
+</header>
+
+<div class="container">
+    <div class="top">
+        <div class="num"><span>30</span></div>
+        <div class="name">我的团队（人）</div>
+    </div>
+    <div class="invite-con">
+        <div class="con-top">
+            <div class="time">注册时间</div>
+            <div class="time">手机号</div>
+            <div class="time">当前等级</div>
+        </div>
+        <ul class="con-p">
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">一级销售经理</div>
+            </li>
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">销售经理</div>
+            </li>
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">代理</div>
+            </li>
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">销售经理</div>
+            </li>
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">二级级销售经理</div>
+            </li>
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">三级销售经理</div>
+            </li>
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">代理</div>
+            </li>
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">销售经理</div>
+            </li>
+
+        </ul>
+<!--
+        <ul class="con-p">
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">销售经理</div>
+            </li>
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">普通用户</div>
+            </li>
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">代理</div>
+            </li>
+            <li class="con-txt">
+                <div class="time">2018-12-22</div>
+                <div class="time">132****3157</div>
+                <div class="time">普通用户</div>
+            </li>
+
+        </ul>
+-->
+    </div>
+    <div class="invite-no">
+        <img src="images/icon_no-daili.png">
+        <div class="no-num">
+            暂无，去努力邀请好友吧~
+        </div>
+    </div>
+</div>
+
+
+<footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  4;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+
+<script>
+    $(function () {
+        console.log($(".top .num span").text())
+        if($(".top .num span").text() == 0){
+            $(".invite-con").hide()
+            $(".invite-no").show()
+        }else {
+            $(".invite-con").show()
+            $(".invite-no").hide()
+        }
+    })
+
+
+
+    function loadMore() {
+        var jsContent = "";
+        var loadMoreContent = "<div id='load_more_content' class='red_load_more_content'>-- 加载更多 --</div>";
+        $("#load_more_content").remove();
+        for (var i = 0; i < 10; i++) {
+            jsContent += '<li class="con-txt"> <div class="time">2018-12-22</div> <div class="time">132****3157</div> <div class="time">销售经理</div> </li>';
+        }
+        jsContent+=loadMoreContent;
+        $(".con-p").append(jsContent);
+    }
+
+        // loadMore();
+    //  监听指定组件滑动
+    $(".con-p").scroll(function(){
+        console.log("$(\"this\").scrollHeight" + $(this)[0].scrollHeight);
+        console.log("$(this).height()" + $(this).height());
+        console.log("$(this)[0].scrollTop" + $(this)[0].scrollTop);
+        if($(this)[0].scrollTop+$(this).height()>=$(this)[0].scrollHeight){
+            setTimeout(function(){
+                // loadMore();
+            },1000)
+        }
+    });
+    $(function(){
+        var page = 0;                           // 页数
+        var size = 10;                         // 每页展示10个
+        $('.content').dropload({
+            scrollArea : window,
+            domDown : {
+                domClass   : 'dropload-down',
+                domRefresh : '<p class="dropload-refresh">↑加载更多</p>',
+                domLoad    : '<p class="dropload-load"><span class="loading"></span>加载中...</p>',
+                domNoData  : '<p class="dropload-noData">暂无数据</p>'
+            },
+            loadDownFn : function(me){
+                page++;            // 拼接HTML
+                var result = '';
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://ons.me/tools/dropload/json.php?page='+page+'&size='+size,
+                    dataType: 'json',
+                    success: function(data){
+                        var arrLen = data.length;
+                        if(arrLen > 0){
+                            for(var i=0; i<arrLen; i++){
+                            result += '<li class="con-txt"> <div class="time">2018-12-22</div> <div class="time">132****3157</div> <div class="time">销售经理</div> </li>';
+                            }
+                        }else{                        // 如果没有数据
+                            me.lock();                // 锁定
+                            me.noData();              // 无数据
+                        }
+                        setTimeout(function(){
+                            $('.lists').append(result);            // 插入数据到页面，放到最后面
+                            me.resetload();                        // 每次数据插入，必须重置
+                        },1000);
+                    },
+                    error: function(xhr, type){
+                        alert('Ajax error!');                    // 即使加载出错，也得重置
+                        me.resetload();
+                    }
+                });
+            },
+            threshold : 50
+        });
+    });
+</script>
+
+</body>
+</html>

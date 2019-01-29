@@ -1,0 +1,200 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:39:"./template/web/rainbow/agent\index.html";i:1547533129;s:72:"D:\PHPTutorial\WWW\shopxz613-php\template\web\rainbow\public\header.html";i:1547189899;s:72:"D:\PHPTutorial\WWW\shopxz613-php\template\web\rainbow\public\footer.html";i:1547606976;}*/ ?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>分销中心</title>
+    <link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/css/alertPopShow.css">
+    <link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/css/ui-dialog.css">
+    <link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/css/mr_style.css">
+    <script type="text/javascript" src="/template/web/rainbow/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/template/web/rainbow/static/js/alertPopShow.js"></script>
+    
+</head>
+<body class="page-dcom">
+
+<link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/tonghaoran/css/common.css">
+<link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/tonghaoran/css/mr_style.css">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>代理中心</h5>
+</header>
+
+<div class="container">
+    <div class="top">
+        <div class="top-left">
+            <div class="avatar">
+                <img src="<?php if($user_info[head_pic] != null): ?><?php echo $user_info[head_pic]; else: ?>/template/web/rainbow/static/tonghaoran/images/prod6.png<?php endif; ?>">
+            </div>
+            <div class="name-info">
+                <div class="name-box">
+                    <div class="name"><?php if($user_info['nickname'] != ''): ?><?php echo $user_info['nickname']; else: ?>未设置<?php endif; ?></div>
+                    <div class="proxy">
+                        <div class="proxy-img"></div>
+                        <div class="proxy-txt">荣誉省代</div>
+                    </div>
+                </div>
+                <div class="tel-box">
+                    <div class="tel"><?php echo $user_info['mobile']; ?></div>
+                    <div class="referrer">推荐人：店长</div>
+                </div>
+
+            </div>
+        </div>
+        <!--<div class="top-right">
+            <img src="/template/web/rainbow/static/tonghaoran/images/icon_jing.png">
+        </div>-->
+    </div>
+    <div class="yongjin">
+        <div class="yongjin-lf">
+            <div class="num"><span><?php echo $grand_total; ?></span></div>
+            <div class="name">累计佣金</div>
+        </div>
+        <a class="yongjin-right" href="<?php echo U('cosmetology/Agent/withdrawMoney'); ?>">
+            <div class="num">
+                <span><?php echo $user_info['user_money']; ?></span>
+                <div class="name">可提现金额</div>
+            </div>
+            <div class="more"></div>
+        </a>
+    </div>
+
+    <div class="box">
+        <a class="income" href="<?php echo U('cosmetology/Agent/income'); ?>">
+            <!--<a class="income" href="<?php echo U('cosmetology/Agent/distriOrder'); ?>">-->
+
+            <div class="income-lf">
+                <img src="/template/web/rainbow/static/tonghaoran/images/icon_distribut1.png">
+                <span>分销佣金</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a>
+        <a class="income" href="<?php echo U('cosmetology/Agent/drawingRecord'); ?>">
+            <div class="income-lf">
+                <img src="/template/web/rainbow/static/tonghaoran/images/icon_distribut2.png">
+                <span>分销订单</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a>
+    </div>
+    <div class="box">
+        <a class="income" href="<?php echo U('cosmetology/Agent/inviteFriends'); ?>">
+            <div class="income-lf">
+                <img src="/template/web/rainbow/static/tonghaoran/images/icon_distribut3.png">
+                <span>提现明细</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a>
+        <a class="income" href="<?php echo U('cosmetology/Agent/myInvitation'); ?>">
+            <div class="income-lf">
+                <img src="/template/web/rainbow/static/tonghaoran/images/icon_distribut4.png">
+                <span>消费记录</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a>
+    </div>
+
+    <div class="box">
+        <a class="income" href="<?php echo U('cosmetology/Agent/myRecommend'); ?>">
+            <div class="income-lf">
+                <img src="/template/web/rainbow/static/tonghaoran/images/icon_distribut5.png">
+                <span>邀请好友</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a>
+        <a class="income" href="<?php echo U('cosmetology/Agent/myTeam'); ?>">
+            <div class="income-lf">
+                <img src="/template/web/rainbow/static/tonghaoran/images/icon_distribut6.png">
+                <span>我的代理</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a>
+    </div>
+    <div class="box">
+        <a class="income" href="<?php echo U('cosmetology/Agent/levelDescription'); ?>">
+            <div class="income-lf">
+                <img src="/template/web/rainbow/static/tonghaoran/images/icon_distribut7.png">
+                <span>等级说明</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </a>
+    </div>
+    <!--  <div class="box">
+       <div class="income">
+            <div class="income-lf">
+                <img src="/template/web/rainbow/static/tonghaoran/images/icon_jinhuo.png">
+                <span>我要进货</span>
+            </div>
+            <div class="income-right">
+                <div class="more"></div>
+            </div>
+        </div>
+    </div> -->
+    <!--
+    <div class="box">
+        <ul>
+            <li class="income">
+                <a href="<?php echo U('cosmetology/Agent/reprotInfor'); ?>">
+                    <div class="income-lf">
+                        <img src="/template/web/rainbow/static/tonghaoran/images/icon_baodanziliao.png">
+                        <span>报单资料</span>
+                    </div>
+                    <div class="income-right">
+                        <div class="more"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="income">
+                <a href="<?php echo U('cosmetology/Agent/reportManagement'); ?>">
+                    <div class="income-lf">
+                        <img src="/template/web/rainbow/static/tonghaoran/images/icon_baodanbi.png">
+                        <span>报单管理</span>
+                    </div>
+                    <div class="income-right">
+                        <div class="more"></div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+-->
+</div>
+
+<footer id="footer-nav"></footer>
+<script>
+    if("<?php echo $level_status; ?>" == 1){
+        var isdaili = true;
+    }else{
+        var isdaili = false;
+    }
+</script>
+<script type="text/javascript">var footerNav =  <?php echo $footer; ?>;</script>
+<script type="text/javascript" src="/template/web/rainbow/static/js/footer.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>邀请好友</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body class="page-invite-friend">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>邀请好友</h5>
+</header>
+
+<div class="container">
+    <div class="main">
+        <!--<img src="images/icon_yaoqing_bg.png">-->
+        <div class="invite-qrcode">
+            <div class="mine-code">
+                我的邀请码
+            </div>
+            <textarea id="invite-code-num" class="invite-code-num">JRL7DN</textarea>
+            <div class="code-fuzhi">
+                复制
+            </div>
+            <div class="fuzhi-succ">复制成功</div>
+        </div>
+        <div class="record">
+            <div class="record-tit">
+                -----------------  邀请记录  ----------------
+            </div>
+            <ul class="record-con">
+                <li class="record-row record-row-tit">
+                    <div class="record-col">邀请日期</div>
+                    <div class="record-col">手机号</div>
+                    <div class="record-col">当前等级</div>
+                </li>
+                <li class="record-row">
+                    <div class="record-col">2018-12-22</div>
+                    <div class="record-col">132****3157</div>
+                    <div class="record-col">普通用户</div>
+                </li>
+                <li class="record-row">
+                    <div class="record-col">2018-12-22</div>
+                    <div class="record-col">132****3157</div>
+                    <div class="record-col">普通用户</div>
+                </li>
+                <li class="record-row">
+                    <div class="record-col">2018-12-22</div>
+                    <div class="record-col">132****3157</div>
+                    <div class="record-col">普通用户</div>
+                </li>
+                <li class="record-row">
+                    <div class="record-col">2018-12-22</div>
+                    <div class="record-col">132****3157</div>
+                    <div class="record-col">普通用户</div>
+                </li>
+                <li class="record-row">
+                    <div class="record-col">2018-12-22</div>
+                    <div class="record-col">132****3157</div>
+                    <div class="record-col">普通用户</div>
+                </li>
+                <li class="record-row">
+                    <div class="record-col">2018-12-22</div>
+                    <div class="record-col">132****3157</div>
+                    <div class="record-col">普通用户</div>
+                </li>
+                <li class="record-row">
+                    <div class="record-col">2018-12-22</div>
+                    <div class="record-col">132****3157</div>
+                    <div class="record-col">普通用户</div>
+                </li>
+                <li class="record-row">
+                    <div class="record-col">2018-12-22</div>
+                    <div class="record-col">132****3157</div>
+                    <div class="record-col">普通用户</div>
+                </li>
+            </ul>
+            <div class="record-shuoming">
+                <div class="layer-con">
+                    <div class="layer-top">
+                        <img src="images/icon_point.png">
+                        <div class="shuoming">
+                            奖励说明
+                        </div>
+                        <img src="images/icon_point.png">
+                    </div>
+                    <div class="layer-box">
+                        <ul class="layer-p">
+                            <li class="layer-p1">
+                                一.直推奖10%协助公司招募产品代理奖 10%佣金。
+                            </li>
+                            <li class="layer-p1">
+                                二、推广奖 30%  除主市场外，任一代理推广的第一名代理 30%奖励
+                            </li>
+                            <li class="layer-p1">
+                                三、  销售提成 1.5%-10% ，团队业绩对应提成比例，差额奖励
+                            </li>
+                        </ul>
+                        <div class="layer-tab">
+                            <dl border="1" cellpadding="0" cellspacing = "0">
+                                <dt>
+                                    <ol>
+                                        <li>销售业绩</li>
+                                        <li>提成比例</li>
+                                        <li>销售业绩</li>
+                                        <li>提成比例</li>
+                                    </ol>
+                                </dt>
+                                <dt>
+                                    <ul>
+                                        <li>1万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+                                    <ul>
+                                        <li>1万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+
+                                    <ul>
+                                        <li>3万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+                                    <ul>
+                                        <li>1万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+
+                                    <ul>
+                                        <li>9万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+                                    <ul>
+                                        <li>1万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+
+                                    <ul>
+                                        <li>15万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+                                    <ul>
+                                        <li>1万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+
+                                    <ul>
+                                        <li>30万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+                                    <ul>
+                                        <li>1万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+
+                                    <ul>
+                                        <li>50万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+                                    <ul>
+                                        <li>1万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+
+                                    <ul>
+                                        <li>70万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+                                    <ul>
+                                        <li>1万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+
+                                    <ul>
+                                        <li>90万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+                                    <ul>
+                                        <li>1万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+
+                                    <ul>
+                                        <li>110万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+                                    <ul>
+                                        <li>1万</li>
+                                        <li>1.5%</li>
+                                    </ul>
+                                </dt>
+                            </dl>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <a href="invite-qrcode.html" class="invite-card">
+                生成邀请卡
+            </a>
+        </div>
+        <!--<a href="invite-qrcode.html" class="invite-card">
+            生成邀请卡
+        </a>-->
+    </div>
+</div>
+
+
+<footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  4;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+
+<script>
+    $(function () {
+        $(".page-invite-friend").on("click",".code-fuzhi",function () {
+            copyText()
+            $(".page-invite-friend .fuzhi-succ").show()
+            setTimeout('$(".page-invite-friend .fuzhi-succ").hide()',1000)
+        })
+        function copyText() {
+            var codeNum = $(".page-invite-friend .invite-code-num").text();
+            var url2 = document.getElementById("invite-code-num")
+            url2.select(); // 选中文本
+            document.execCommand("Copy"); // 执行浏览器复制命令
+            console.log("复制成功");
+
+        }
+    })
+</script>
+
+</body>
+</html>

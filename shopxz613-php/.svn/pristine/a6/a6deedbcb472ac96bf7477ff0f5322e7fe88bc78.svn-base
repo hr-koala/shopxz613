@@ -1,0 +1,74 @@
+<include file="public/header" title="补货中心"  body="page-reple-center"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/tonghaoran/css/common.css">
+<link rel="stylesheet" type="text/css" href="__STATIC__/tonghaoran/css/mr_style.css">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>补货中心</h5>
+</header>
+
+<div class="container">
+    <div class="top">
+        <div class="num">¥<span>3000</span></div>
+        <div class="name">累计补货奖励</div>
+    </div>
+    <div class="top-nav">
+        <a href="{:U('cosmetology/Index/Index')}" class="top-tit" style="color: #2cd0b5;">
+            <div class="reward-reple"></div>
+            <span>我要补货</span>
+        </a>
+        <a class="top-tit" href="{:U('cosmetology/Mine/bonus_details')}" style="color: #2cd0b5;">
+            <div class="reward-reple"></div>
+            <span>奖励明细</span>
+        </a>
+    </div>
+    <div class="reple-con">
+        <div class="reple-tit-txt">补货记录</div>
+        <volist name="order_list" id='order'>
+            <volist name="order[goods_list]" id="goods">
+                <div class="reple-box">
+                    <div class="name">
+                        <span class="shop-name">{$goods['goods_name']}</span>
+                        <span>X{$goods['goods_num']}</span>
+                    </div>
+                    <div class="time">
+                        <span class="time-date">{$order['add_time']|date='Y-m-d H:i:s',###}</span>
+                        <span class="stats">
+                            <if condition="($order[pay_status] eq 1) AND ($order[shipping_status] eq 1) AND ($order[order_status] eq 6)">
+                                完成进货
+                            <else />
+                                {:C('ORDER_STATUS_DESC')[$order[order_status_code]]}
+                            </if>
+                        </span>
+                    </div>
+                </div>
+            </volist>
+        </volist>
+
+        <!-- <div class="reple-box">
+            <div class="name">
+                <span class="shop-name">复合树莓果片压片糖果</span>
+                <span>X1</span>
+            </div>
+            <div class="time">
+                <span class="time-date">2018-12-26 15:35</span>
+                <span class="stats pay">待付款</span>
+            </div>
+        </div> -->
+
+    </div>
+
+</div>
+
+<include file="public/footer"/>
+
+<script>
+    $(function () {
+        $(".top-nav").on("click",".top-tit",function () {
+            $(this).addClass("active").siblings(".top-tit").removeClass("active")
+        })
+    })
+</script>
+
+</body>
+</html>

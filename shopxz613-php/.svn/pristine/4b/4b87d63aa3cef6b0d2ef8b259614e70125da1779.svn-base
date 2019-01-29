@@ -1,0 +1,182 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:39:"./template/web/rainbow/index\index.html";i:1547783801;s:72:"D:\PHPTutorial\WWW\shopxz613-php\template\web\rainbow\public\header.html";i:1547189899;s:72:"D:\PHPTutorial\WWW\shopxz613-php\template\web\rainbow\public\footer.html";i:1547606976;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/css/alertPopShow.css">
+    <link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/css/ui-dialog.css">
+    <link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/css/mr_style.css">
+    <script type="text/javascript" src="/template/web/rainbow/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/template/web/rainbow/static/js/alertPopShow.js"></script>
+    
+</head>
+<body class="page-home">
+
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>商城</h5>
+</header>
+
+<div class="container" id="all">
+    <!--<div class="search">
+        <form id="frm1" action="<?php echo U('cosmetology/Goods/search'); ?>">
+            <div class="search-box">
+                <div class="icon"></div>
+                <div class="right">
+                    <input type="search" name="name" value="" placeholder="搜索商品">
+                </div>
+            </div>
+        </form>
+    </div>-->
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <?php $pid =2;$ad_position = M("ad_position")->cache(true,TPSHOP_CACHE_TIME)->column("position_id,position_name,ad_width,ad_height","position_id");$result = M("ad")->where("pid=$pid  and enabled = 1 and start_time < 1547780400 and end_time > 1547780400 ")->order("orderby desc")->cache(true,TPSHOP_CACHE_TIME)->limit("5")->select();
+if(is_array($ad_position) && !in_array($pid,array_keys($ad_position)) && $pid)
+{
+  M("ad_position")->insert(array(
+         "position_id"=>$pid,
+         "position_name"=>CONTROLLER_NAME."页面自动增加广告位 $pid ",
+         "is_open"=>1,
+         "position_desc"=>CONTROLLER_NAME."页面",
+  ));
+  delFile(RUNTIME_PATH); // 删除缓存
+  \think\Cache::clear();  
+}
+
+
+$c = 5- count($result); //  如果要求数量 和实际数量不一样 并且编辑模式
+if($c > 0 && I("get.edit_ad"))
+{
+    for($i = 0; $i < $c; $i++) // 还没有添加广告的时候
+    {
+      $result[] = array(
+          "ad_code" => "/public/images/not_adv.jpg",
+          "ad_link" => "/index.php?m=Admin&c=Ad&a=ad&pid=$pid",
+          "title"   =>"暂无广告图片",
+          "not_adv" => 1,
+          "target" => 0,
+      );  
+    }
+}
+foreach($result as $key=>$v):       
+    
+    $v[position] = $ad_position[$v[pid]]; 
+    if(I("get.edit_ad") && $v[not_adv] == 0 )
+    {
+        $v[style] = "filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5"; // 广告半透明的样式
+        $v[ad_link] = "/index.php?m=Admin&c=Ad&a=ad&act=edit&ad_id=$v[ad_id]";        
+        $v[title] = $ad_position[$v[pid]][position_name]."===".$v[ad_name];
+        $v[target] = 0;
+    }
+    ?>
+                <div class="swiper-slide"><img src="<?php echo $v[ad_code]; ?>" alt="" style="<?php echo $v[style]; ?>"></div>
+            <?php endforeach; ?>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="classify flex-row">
+        <?php
+                                   
+                                $md5_key = md5("SELECT * FROM `__PREFIX__navigation` where is_show = 1 and position = 'top' ORDER BY `sort` ASC");
+                                $result_name = $sql_result_v = S("sql_".$md5_key);
+                                if(empty($sql_result_v))
+                                {                            
+                                    $result_name = $sql_result_v = \think\Db::query("SELECT * FROM `__PREFIX__navigation` where is_show = 1 and position = 'top' ORDER BY `sort` ASC"); 
+                                    S("sql_".$md5_key,$sql_result_v,1);
+                                }    
+                              foreach($sql_result_v as $k=>$v): ?>
+            <a class="box" href='<?php echo $v[url]; ?>'>
+                <div class="img"><img src="<?php echo $v[navigation_picture]; ?>" alt=""></div>
+                <p><?php echo $v[name]; ?></p>
+            </a>
+        <?php endforeach; ?>
+    </div>
+
+    <div class="main">
+        <div class="list flex-row">
+            
+            <?php if(is_array($hot_area) || $hot_area instanceof \think\Collection || $hot_area instanceof \think\Paginator): $i = 0;$__LIST__ = is_array($hot_area) ? array_slice($hot_area,0,10, true) : $hot_area->slice(0,10, true); if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$area): $mod = ($i % 2 );++$i;?>
+                <div class="goods-item" >
+                    <a href="<?php echo U('cosmetology/Goods/details',['id'=>$area['goods_id']]); ?>">
+                        <div class="img"><img src="<?php echo $area['original_img']; ?>" alt=""></div><!-- <?php echo $_SERVER['SERVER_NAME']; ?> -->
+                        <div class="name"><?php echo $area['goods_name']; ?></div>
+                        <div class="shop-desc">
+                            <span class="desc-num"><?php echo $area['explain']; ?></span>
+                            <?php $effect_arr = explode('|', $area['commodity_effect']); if(is_array($effect_arr) || $effect_arr instanceof \think\Collection || $effect_arr instanceof \think\Paginator): $i = 0; $__LIST__ = $effect_arr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arr): $mod = ($i % 2 );++$i;?>
+                                <span class="desc-effect"><?php echo $arr; ?></span>
+                            <?php endforeach; endif; else: echo "" ;endif; ?>
+                        </div>
+                    </a>
+
+
+                    <div class="gbot flex-row">
+                        <div class="shop-coll">
+                            <div class="icon icon-coll"></div>
+                            <div class="shop-coll-txt">收藏</div>
+                        </div>
+
+                        <div class="gleft">
+                            <?php if(($level[level_id] != null) AND ($area[$goods_grade_price[$level[level_id]]] != $area['shop_price'])): ?>
+                                <div class="has-price">¥<?php echo $area['shop_price']; ?></div>
+                                <div class="price">代理价：<span>¥<?php echo $area[$goods_grade_price[$level[level_id]]]; ?></span></div>
+                            <?php else: ?>
+                                <div class="price"><span>¥<?php echo $area[shop_price]; ?></span></div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
+                </div>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+        </div>
+    </div>
+    <div class="nomore flex-row">
+        <div class="xian"></div>
+        <p>到底了~</p>
+        <div class="xian"></div>
+    </div>
+</div>
+<footer id="footer-nav"></footer>
+<script>
+    if("<?php echo $level_status; ?>" == 1){
+        var isdaili = true;
+    }else{
+        var isdaili = false;
+    }
+</script>
+<script type="text/javascript">var footerNav =  <?php echo $footer; ?>;</script>
+<script type="text/javascript" src="/template/web/rainbow/static/js/footer.js"></script>
+</body>
+<script type="text/javascript" src="/template/web/rainbow/static/js/swiper.min.js"></script>
+<script type="text/javascript" src="/template/web/rainbow/static/js/vue.js"></script>
+<script>
+
+$(function(){
+    var vm = new Vue({
+        el: '#all'
+    })
+
+    var mySwiper = new Swiper('.swiper-container', {
+        autoplay: {
+            delay: 3000
+        },
+        loop : true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    })
+})
+
+</script>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>详情</title>
+    <link rel="stylesheet" type="text/css" href="css/ui-dialog.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    
+</head>
+<body class="page-detail">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>详情</h5>
+</header>
+
+<div class="container" id="all">
+    
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide img"><img src="images/banner2.png" alt=""></div>
+            <div class="swiper-slide img"><img src="images/banner1.png" alt=""></div>
+            <div class="swiper-slide img"><img src="images/banner2.png" alt=""></div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="top">
+        <div class="name">V 脸套装（V 脸霜 + 瘦脸神器 + 唤醒面膜 ）</div>
+        <div class="qian flex-row">
+            <div class="price">¥1980</div>
+            <div class="like flex-row">
+                <div class="icon icon-like"></div>
+                <p>关注</p>
+            </div>
+            <div class="like flex-row">
+                <div class="icon icon-like1"></div>
+                <p>已关注</p>
+            </div>
+        </div>
+        <div class="yun flex-row">
+            <p>运费：免运费</p>
+            <p>剩余：884</p>
+        </div>
+        <div class="tag flex-row">
+            <div class="box flex-row">
+                <div class="icon icon-dui"></div>
+                <p>企业认证</p>
+            </div>
+            <div class="box flex-row">
+                <div class="icon icon-dui"></div>
+                <p>快递送货</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="tit"><p>商品详情</p></div>
+        <div class="detail">
+            <img src="images/banner2.png" alt="">
+        </div>
+    </div>
+
+    <div class="floor flex-row">
+        <a href="" title="" class="box">
+            <div class="icon icon-cart"></div>
+            <p>购物袋</p>
+        </a>
+        <div class="btn add-cart" @click="addCartFun"><p>加入购物袋</p></div>
+        <div class="btn bg1 payment" @click="paymentFun"><p>立即付款</p></div>
+    </div>
+
+    <div class="mask" v-show="isShowSpecPopFlag" @click="hideSpecPopFun"></div>
+    <div class="spec-pop" v-show="isShowSpecPopFlag">
+        <div class="icon close" @click="hideSpecPopFun"></div>
+        <div class="goods flex-row">
+            <div class="img"><img src="images/prod2.png" alt=""></div>
+            <div class="right flex-column">
+                <div class="name">V脸套装（V脸霜+瘦脸V脸套装（V脸霜+瘦脸</div>
+                <div class="price">¥{{buy.price}}</div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="box flex-row" v-for="(item, key, index) in specList">
+                <div class="name">{{key}}：</div>
+                <ul class="flex-row">
+                    <li v-for="(cit, cis) in item" @click="chooseSpecItem" :data-id="cit.item_id" :data-index="index">{{cit.item}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="shul flex-row">
+            <div class="left">
+                <div class="name">数量：</div>
+                <p class="surplus">剩余{{buy.store_count}}件</p>
+            </div>
+            <div class="set-num flex-row">
+                <div class="icon sub" @click="subNumFun">-</div>
+                <div class="num">{{buy.num}}</div>
+                <div class="icon add" @click="addNumFun">+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+
+
+</body>
+
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/dialog-plus-min.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script>
+
+$(function(){
+    var vm = new Vue({
+        el: '#all',
+        data: {
+            isShowSpecPopFlag: false, //是否显示规格弹窗
+            specArr: [], //选择的规格id数组
+            buy: {}, //选择的规格和数量
+        },
+        computed: {
+            /*规格数组*/
+            specList: function(){
+                var arr = {"颜色分类":[{"item_id":33,"item":"银色","src":null},{"item_id":34,"item":"全黑色","src":null},{"item_id":35,"item":"全白色","src":null}],"版本":[{"item_id":54,"item":"21.5 英寸 iMac 2.3GHz 处理器 1TB 存储容量","src":null},{"item_id":55,"item":"21.5 英寸 iMac Retina 4K 显示屏 3.0GHz 处理器 1TB 存储容量","src":null},{"item_id":56,"item":"21.5 英寸 iMac Retina 4K 显示屏 3.4GHz 处理器 1TB 存储容量","src":null}]};
+                return arr;
+            },
+            /*规格组合数组*/
+            specGoods: function(){
+                var arr = {"33_54":{"key":"33_54","item_id":242,"price":"7788.00","store_count":99,"market_price":"0.00"},"34_54":{"key":"34_54","item_id":243,"price":"7788.00","store_count":100,"market_price":"0.00"},"35_54":{"key":"35_54","item_id":244,"price":"7788.00","store_count":100,"market_price":"0.00"},"33_55":{"key":"33_55","item_id":245,"price":"7788.00","store_count":100,"market_price":"0.00"},"34_55":{"key":"34_55","item_id":246,"price":"7788.00","store_count":100,"market_price":"0.00"},"35_55":{"key":"35_55","item_id":247,"price":"7788.00","store_count":100,"market_price":"0.00"},"33_56":{"key":"33_56","item_id":248,"price":"7788.00","store_count":100,"market_price":"0.00"},"34_56":{"key":"34_56","item_id":249,"price":"7788.00","store_count":100,"market_price":"0.00"},"35_56":{"key":"35_56","item_id":250,"price":"7788.00","store_count":100,"market_price":"0.00"}};
+                return arr;
+            }
+        },
+        methods: {
+            /*初始化*/
+            init: function(){
+                var buy = {
+                    num: 1,
+                    price: 950,
+                    store_count: 100, //剩余
+                }
+                this.buy = buy;
+            },
+            /*选择规格项*/
+            chooseSpecItem: function(e){
+                var id = $(e.target).data('id')
+                var index = $(e.target).data('index')
+                this.specArr[index] = id;
+                $(e.target).addClass('on').siblings().removeClass('on')
+                this.countSpecFun()
+            },
+            /*加入购物袋*/
+            addCartFun: function(){
+                if(this.hasSpecFun()){
+
+                }
+            },
+            /*立即付款*/
+            paymentFun: function(){
+                if(this.hasSpecFun()){
+                    
+                }
+            },
+            /*判断是否显示弹窗 或 有规格*/
+            hasSpecFun: function(){
+                if(this.isShowSpecPopFlag){
+                    if(this.specList){
+                        if(!this.buy.spec){
+                            dialogFun('请先选择规格')
+                            return false;
+                        }
+                    }
+                    return true;
+                }else{
+                    this.isShowSpecPopFlag = true;
+                    return false;
+                }
+            },
+            /*减*/
+            subNumFun: function(){
+                if(this.buy.num > 1){
+                    this.buy.num -= 1;
+                }
+            },
+            /*加*/
+            addNumFun: function(){
+                if(this.buy.num < this.buy.store_count){
+                    this.buy.num += 1;
+                }
+            },
+            /*隐藏规格弹窗*/
+            hideSpecPopFun: function(){
+                this.isShowSpecPopFlag = false;
+            },
+            /*计算规格*/
+            countSpecFun: function(){
+                var arr = this.specArr;
+                var len = 0;
+                for(var i = 0; i < arr.length; i++){
+                    if(arr[i]){
+                        len++;
+                    }else{
+                        break;
+                    }
+                }
+
+                if(len < $('.spec-pop .list .box').length){
+                    return;
+                }
+                var list = this.specGoods;
+                arr.sort();
+                var str = arr.join('_')
+                var obj = {};
+                for(var i in list){
+                    var a = list[i].key.trim().split('_').sort().join('_');
+                    if(a === str){
+                        obj = list[i];
+                        break;
+                    }
+                }
+                var buy = this.buy;
+                buy.spec = obj;
+                buy.price = obj.price;
+                buy.store_count = obj.store_count;
+            }
+        }
+    })
+
+    vm.init()
+
+    var mySwiper = new Swiper('.swiper-container', {
+        autoplay: {
+            delay: 3000
+        },
+        loop : true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    })
+})
+
+function dialogFun(str){
+    dialog({
+        width: 280,
+        title: '提示',
+        content: str,
+        cancel: false,
+        okValue: '确定',
+        ok: function(){
+        }
+    }).showModal();
+}
+
+</script>
+</html>

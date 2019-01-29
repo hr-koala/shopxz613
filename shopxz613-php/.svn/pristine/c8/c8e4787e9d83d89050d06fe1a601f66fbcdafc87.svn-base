@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>我的收入</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/FlexoCalendar.css">
+    <script src="js/FlexoCalendar.js"></script>
+</head>
+<body class="page-income">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>我的收入</h5>
+</header>
+
+<div class="container">
+    <!--<div class="no-data">
+        <img src="images/icon_income_no.png">
+        <div class="no-data-txt">
+            暂无!
+        </div>
+    </div>-->
+        <div class="top">
+            <div class="num"><span>1300</span></div>
+            <div class="name">累计奖励（元）</div>
+            <ul class="tit flex-row">
+                <li class="box">
+                    <p class="p1">500</p>
+                    <p class="p2">直推奖励</p>
+                </li>
+                <li class="box">
+                    <p class="p1">200</p>
+                    <p class="p2">推广奖励</p>
+                </li>
+                <li class="box">
+                    <p class="p1">100</p>
+                    <p class="p2">销售提成</p>
+                </li>
+                <li class="box">
+                    <p class="p1">500</p>
+                    <p class="p2">晋级奖</p>
+                </li>
+                <li class="box">
+                    <p class="p1">200</p>
+                    <p class="p2">同级奖</p>
+                </li>
+                <li class="box">
+                    <p class="p1">100</p>
+                    <p class="p2">积分红利</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main">
+            <div class="income-detail">
+                <div class="income-detail-txt">收入明细</div>
+                <div class="income-reward">
+                    <div class="income-reward-txt">奖励说明</div>
+                    <div class="income-reward-img"></div>
+                </div>
+            </div>
+            <div class="income-detail-month">
+                <div class="income-month-txt">本月</div>
+                <div class="income-month">
+                    <div class="income-month-date">2018-12月</div>
+                    <div class="income-month-img">
+                        <img src="images/icon_date.png">
+                    </div>
+                    <div class="date-month month-hide">
+                        <div class="calendar-wrapper">
+                            <div id="calendar-monthly"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="no-data">
+                <img src="images/icon_income_no.png">
+                <div class="no-data-txt">
+                    暂无!
+                </div>
+            </div>
+            <div class="has-data">
+                <ul>
+                    <li class="income-detail-jiangli">
+                        <div class="income-jiangli-left">
+                            <div class="income-jiangli-img">
+                                <img src="images/icon_qiandai.png">
+                            </div>
+                            <div class="income-jiangli-txt">
+                                <div class="income-jiangli-left-txt">
+                                    直推奖励
+                                </div>
+                                <div class="income-jiangli-left-date">
+                                    2018-12-22 15:35:25
+                                </div>
+                            </div>
+                        </div>
+                        <div class="income-jiangli-right">
+                            + 5000.000
+                        </div>
+                    </li>
+                    <li class="income-detail-jiangli">
+                        <div class="income-jiangli-left">
+                            <div class="income-jiangli-img income-tuiguang-img">
+                                <img src="images/icon_tuiguang.png">
+                            </div>
+                            <div class="income-jiangli-txt">
+                                <div class="income-jiangli-left-txt">
+                                    推广奖励
+                                </div>
+                                <div class="income-jiangli-left-date">
+                                    2018-12-22 15:35:25
+                                </div>
+                            </div>
+                        </div>
+                        <div class="income-jiangli-right">
+                            + 5000
+                        </div>
+                    </li>
+                    <li class="income-detail-jiangli">
+                        <div class="income-jiangli-left">
+                            <div class="income-jiangli-img income-ticheng-img">
+                                <img src="images/icon_xiaoshou.png">
+                            </div>
+                            <div class="income-jiangli-txt">
+                                <div class="income-jiangli-left-txt">
+                                    销售提成
+                                </div>
+                                <div class="income-jiangli-left-date">
+                                    2018-12-22 15:35:25
+                                </div>
+                            </div>
+                            <div class="daifan">待返</div>
+                        </div>
+                        <div class="income-jiangli-right income-jiangli-right-color">
+                            + 500220.000
+                        </div>
+                    </li>
+                    <li class="income-detail-jiangli">
+                        <div class="income-jiangli-left">
+                            <div class="income-jiangli-img">
+                                <img src="images/icon_qiandai.png">
+                            </div>
+                            <div class="income-jiangli-txt">
+                                <div class="income-jiangli-left-txt">
+                                    销售提成
+                                </div>
+                                <div class="income-jiangli-left-date">
+                                    2018-12-22 15:35:25
+                                </div>
+                            </div>
+                            <div class="daifan">已返</div>
+                        </div>
+                        <div class="income-jiangli-right">
+                            + 5000
+                        </div>
+                    </li>
+                    <li class="income-detail-jiangli">
+                        <div class="income-jiangli-left">
+                            <div class="income-jiangli-img">
+                                <img src="images/icon_jinji.png">
+                            </div>
+                            <div class="income-jiangli-txt">
+                                <div class="income-jiangli-left-txt">
+                                    晋级奖
+                                </div>
+                                <div class="income-jiangli-left-date">
+                                    2018-12-22 15:35:25
+                                </div>
+                            </div>
+                        </div>
+                        <div class="income-jiangli-right">
+                            + 5000
+                        </div>
+                    </li>
+                    <li class="income-detail-jiangli">
+                        <div class="income-jiangli-left">
+                            <div class="income-jiangli-img income-tuiguang-img">
+                                <img src="images/icon_tongji.png">
+                            </div>
+                            <div class="income-jiangli-txt">
+                                <div class="income-jiangli-left-txt">
+                                    同级奖
+                                </div>
+                                <div class="income-jiangli-left-date">
+                                    2018-12-22 15:35:25
+                                </div>
+                            </div>
+                        </div>
+                        <div class="income-jiangli-right">
+                            + 5000
+                        </div>
+                    </li>
+                    <li class="income-detail-jiangli">
+                        <div class="income-jiangli-left">
+                            <div class="income-jiangli-img income-ticheng-img">
+                                <img src="images/icon_jifen.png">
+                            </div>
+                            <div class="income-jiangli-txt">
+                                <div class="income-jiangli-left-txt">
+                                    积分红利
+                                </div>
+                                <div class="income-jiangli-left-date">
+                                    2018-12-22 15:35:25
+                                </div>
+                            </div>
+                        </div>
+                        <div class="income-jiangli-right">
+                            + 5000
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+</div>
+<div class="income-layer"></div>
+<div class="layer">
+    <div class="layer-con">
+        <div class="layer-top">
+            <img src="images/icon_point.png">
+            <div class="shuoming">
+                奖励说明
+            </div>
+            <img src="images/icon_point.png">
+        </div>
+        <ul class="layer-p">
+            <li class="layer-p1">
+                一.直推奖10%协助公司招募产品代理奖10%佣金。
+            </li>
+            <li class="layer-p1">
+                二、  推广奖 30%  除主市场外，任一代理推广的第一名代理 30%奖励
+            </li>
+            <li class="layer-p1">
+                三、  销售提成 1.5%-10% ，团队业绩对应提成比例，差额奖励
+            </li>
+        </ul>
+        <div class="layer-tab">
+            <dl border="1" cellpadding="0" cellspacing = "0">
+                <dt>
+                    <ol>
+                        <li>销售业绩</li>
+                        <li>提成比例</li>
+                        <li>销售业绩</li>
+                        <li>提成比例</li>
+                    </ol>
+                </dt>
+                <dt>
+                    <ul>
+                        <li>1万</li>
+                        <li>1.5%</li>
+                    </ul>
+                    <ul>
+                        <li>1万</li>
+                        <li>1.5%</li>
+                    </ul>
+
+                    <ul>
+                        <li>3万</li>
+                        <li>1.5%</li>
+                    </ul>
+                    <ul>
+                        <li>1万</li>
+                        <li>1.5%</li>
+                    </ul>
+
+                    <ul>
+                        <li>9万</li>
+                        <li>1.5%</li>
+                    </ul>
+                    <ul>
+                        <li>1万</li>
+                        <li>1.5%</li>
+                    </ul>
+
+                    <ul>
+                        <li>15万</li>
+                        <li>1.5%</li>
+                    </ul>
+                    <ul>
+                        <li>1万</li>
+                        <li>1.5%</li>
+                    </ul>
+
+                    <ul>
+                        <li>30万</li>
+                        <li>1.5%</li>
+                    </ul>
+                    <ul>
+                        <li>1万</li>
+                        <li>1.5%</li>
+                    </ul>
+
+                    <ul>
+                        <li>50万</li>
+                        <li>1.5%</li>
+                    </ul>
+                    <ul>
+                        <li>1万</li>
+                        <li>1.5%</li>
+                    </ul>
+
+                    <ul>
+                        <li>70万</li>
+                        <li>1.5%</li>
+                    </ul>
+                    <ul>
+                        <li>1万</li>
+                        <li>1.5%</li>
+                    </ul>
+
+                    <ul>
+                        <li>90万</li>
+                        <li>1.5%</li>
+                    </ul>
+                    <ul>
+                        <li>1万</li>
+                        <li>1.5%</li>
+                    </ul>
+
+                    <ul>
+                        <li>110万</li>
+                        <li>1.5%</li>
+                    </ul>
+                    <ul>
+                        <li>1万</li>
+                        <li>1.5%</li>
+                    </ul>
+                </dt>
+            </dl>
+        </div>
+    </div>
+    <div class="layer-del">
+        <img src="images/icon_close.png">
+    </div>
+</div>
+
+<footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  4;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+<script>
+    $(".page-income").on("click",".income-reward",function () {
+        $(".page-income .income-layer").show()
+        $(".page-income .layer").show()
+    })
+    $(".page-income").on("click",".layer-del",function () {
+        $(".page-income .income-layer").hide()
+        $(".page-income .layer").hide()
+    })
+
+    $(".page-income").on("click",".income-month-img",function () {
+        // $(".page-income .income-layer").show()
+        console.log($(".page-income .date-month").hasClass("month-hide"))
+        if($(".page-income .date-month").hasClass("month-hide")){
+            $(".page-income .date-month").removeClass("month-hide")
+        }else {
+            $(".page-income .date-month").addClass("month-hide")
+        }
+
+    })
+    $(".page-income").on("click",".tmonth ",function () {
+        console.log($(this).text())
+        $(".page-income .date-month").addClass("month-hide")
+
+    })
+
+
+    $("#calendar-monthly").flexoCalendar({
+        type: 'monthly',
+        onselect: function(date){
+            console.log(date)
+            let time = date+"月"
+            $(".page-income .income-month-date").text(time)
+        }
+    });
+</script>
+
+</body>
+</html>

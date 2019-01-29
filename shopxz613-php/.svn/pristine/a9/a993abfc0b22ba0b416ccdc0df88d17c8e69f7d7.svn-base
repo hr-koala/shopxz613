@@ -1,0 +1,48 @@
+<include file="public/header" title="云库存"  body="page-cart page-report-cart page-report"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/tonghaoran/css/common.css">
+<link rel="stylesheet" type="text/css" href="__STATIC__/tonghaoran/css/mr_style.css">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>云库存</h5>
+</header>
+
+<div class="container" id="all">
+    <div class="main" v-if="2<3">
+
+        <volist name="stock_info" id='stock' key='key'>
+            <div class="list">
+                <div class="box flex-row" data-num="1" data-price="{$goods_info[$key-1][$goods_grade_price[$level['level_id']]]}">
+                    <div class="img"><img src="{$goods_info[$key-1][original_img]}" alt=""></div>
+                    <div class="right flex-column">
+                        <div class="name">{$goods_info[$key-1][goods_name]}</div>
+                        <div class="spec kucun-num">库存：X{$stock}</div>
+                        <div class="sbot flex-row">
+                            <div class="price">¥{$goods_info[$key-1][$goods_grade_price[$level['level_id']]]}</div>
+                            <div class="set-num flex-row kucun">
+                                <a class="tihuo-btn" href="{:U('cosmetology/Mine/receiving_goods',['goods_id'=>($key-1)])}">提货</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </volist>
+    </div>
+</div>
+<include file="public/footer"/>
+</body>
+<script type="text/javascript" src="__STATIC__/tonghaoran/js/vue.js"></script>
+<script>
+
+    $(function(){
+        var vm = new Vue({
+            el: '#all'
+        })
+
+
+
+
+    })
+
+</script>
+</html>

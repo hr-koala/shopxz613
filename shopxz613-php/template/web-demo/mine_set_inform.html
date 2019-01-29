@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>修改资料</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script type="text/javascript" src="js/FileSaver.min.js"></script>
+
+</head>
+
+<body class="page-mine page-setInform">
+	
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>修改资料</h5>
+</header>
+
+
+<div class="main">
+	 <div class="other" style="font-family: SourceHanSansCN-Normal;font-size: 0.7rem;">
+        <ul>
+            <li id="portrait">
+                <a href="mine_set_inform.html" class="flex-row" title="">
+                    <div class="right flex-row">
+                        <div class="name">头像</div>
+                        <div class="yuan">
+			                <div class="avatar"><img src="images/prod6.png" alt=""></div>
+			            </div>
+                    </div>
+                </a>
+            </li>
+
+            <li id="yourName">
+                <a href="" class="flex-row" title="">
+                    <div class="right flex-row ">
+                        <div class="name">昵称</div>
+                        <div class="yourNamea">
+                        	<P>点点的光</P>
+                        	<div class="jt-r"></div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            
+             <li id="changePhone">
+                <a href="" class="flex-row" title="">
+                    <div class="right flex-row">
+                        <div class="name">手机号</div>
+                        <div class="yourNamea">
+	                        <P>13135954881</P>
+	                        <div class="jt-r"></div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+	
+	<div class="y_avatar">
+		<ul>
+			<li class="photo">
+                <input id="takepicture" type="file" accept="image/*" capture="camera" >
+                <!--<video id="video"></video>-->
+                拍照上传
+            </li>
+			<li class="album">
+                <!--<input type="file" name="" value="" class="add-img" accept="image/*" title="点击替换图片">-->
+                <input type="file" class="add-img" accept="image/*" value="" />从相册选择</li>
+			<li class="cancel">取消</li>
+		</ul>
+	</div>
+	
+	<div class="setName">
+		<p>修改昵称</p>
+		<input type="text" name="" class="setName_txt" value="请输入您的昵称" />
+		<span>4-16个字符码，仅支持中英文、大小写、数字等组合</span>
+		<div class="setName_btn">
+			<input type="button" name="" value="取消" />
+			<input type="button" name="" value="确定" />
+		</div>
+	</div>
+	
+	<div class="setphone">
+		<p class="setphone_p">更换新手机号</p>
+		<p>您当前的手机号码是<span>+86 132****3157</span>,</p>
+		<p style="margin-left: 0.3rem;">更改后的新手机号将作为新的登陆账号。</p>
+		<div class="setphone_btn">
+			<input type="button" name="" value="取消" />
+			<input type="button" name="" value="立即更改" />
+		</div>
+	</div>
+	
+	<div class="mask"></div>
+
+	
+</body>
+
+
+<script type="text/javascript">
+	$(function(){
+		
+		//修改头像
+		$("#portrait").on("mousedown",function(){
+			$(".y_avatar").show();
+			$(".mask").show();
+		});
+		
+		
+		//修改昵称
+		$("#yourName").on("mousedown",function(){
+			$(".setName").show();
+			$(".mask").show();
+		});
+		
+		$(".setName_txt").on("click",function(){
+			if($(this).val() === "请输入您的昵称"){
+				$(this).val("");
+			}
+
+		});
+		
+		$(".setName_btn").children("input").eq(0).on("click",function(){
+			$(".setName").hide();
+			$(".mask").hide();
+		});
+        $(".setName_btn").children("input").eq(1).on("click",function(){
+            console.log($(".setName_txt").val())
+            console.log($("#yourName").find("p").text())
+            $("#yourName").find("p").text($(".setName_txt").val())
+
+            $(".setName").hide();
+            $(".mask").hide();
+        });
+
+		//修改手机号
+		$("#changePhone").on("mousedown",function(){
+			$(".setphone").show();
+			$(".mask").show();
+		});
+		
+		$(".setphone_btn").children("input").eq(0).on("click",function(){
+			$(".setphone").hide();
+			$(".mask").hide();
+		});
+		
+		$(".setphone_btn").children("input").eq(1).on("click",function(){
+			window.location.href="mine_set_phone.html";
+		});
+		// 拍照
+		$(".page-setInform .photo").on("click",function () {
+            $(".y_avatar").hide();
+            $(".mask").hide();
+        })
+        // 相册
+        $(".page-setInform .album").on("click",function () {
+            $(".y_avatar").hide();
+            $(".mask").hide();
+        })
+        // 取消
+        $(".page-setInform .cancel").on("mousedown",function () {
+            $(".y_avatar").hide();
+            $(".mask").hide();
+        })
+
+
+        $('.page-setInform').on('change', '.add-img', function(event) {
+            event.stopPropagation();
+            var oFile = this.files[0]
+            var _this = this
+            var fr = new FileReader();
+            var rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+            if (!rFilter.test(oFile.type)) {
+                errorFun()
+                return;
+            };
+            fr.readAsDataURL(oFile);
+            fr.onload = function(FREvent) {
+                dealImage(FREvent.target.result, {
+                    width : 500
+                }, function(base){
+                    // console.log(base)
+                    $(".page-setInform .avatar img").attr('src',base);
+                })
+
+                /*var b = new Base64();
+                console.log("base64 decode:" + b.decode(FREvent.target.result))*/
+            }
+        })
+
+        function dealImage(path, obj, callback) {
+            var img = new Image();
+            img.src = path;
+            img.onload = function() {
+                var that = this;
+                // 默认按比例压缩
+                var w = that.width,
+                    h = that.height,
+                    scale = w / h;
+                w = obj.width || w;
+                h = obj.height || (w / scale);
+                var quality = 0.7; // 默认图片质量为0.7
+                //生成canvas
+                var canvas = document.createElement('canvas');
+                var ctx = canvas.getContext('2d');
+                // 创建属性节点
+                var anw = document.createAttribute("width");
+                anw.nodeValue = w;
+                var anh = document.createAttribute("height");
+                anh.nodeValue = h;
+                canvas.setAttributeNode(anw);
+                canvas.setAttributeNode(anh);
+                ctx.drawImage(that, 0, 0, w, h);
+                // 图像质量
+                if (obj.quality && obj.quality <= 1 && obj.quality > 0) {
+                    quality = obj.quality;
+                }
+                // quality值越小，所绘制出的图像越模糊
+                var type = 'image/jpeg'
+                var str = path.substring(0, path.search(/\;/g))
+                if(str.search(/(png)/g) >= 0){
+                    type = 'image/png'
+                }
+                var base64 = canvas.toDataURL(type, quality);
+                // 回调函数返回base64的值
+                callback(base64);
+            }
+        }
+
+
+        //判断是Android还是iOS
+        var ua = navigator.userAgent.toLowerCase();
+        var isiOS = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);  // ios终端
+        if(!isiOS){
+            //input type="file"对一些Android手机来说（如华为）并不能调用拍照功能 加上如下代码可调用手机摄像头
+            $("input").attr('capture','camera');
+        }
+
+        //拍照
+        var takePictureOnclick = function() {
+            var takePicture = document.getElementById('takepicture');
+            takePicture.click();
+        }
+        var takePicture = document.getElementById('takepicture');
+        var takePictureUrl = function() {
+            takePicture.onchange = function(event) {
+                var files = event.target.files;
+                var file;
+                if(files && files.length > 0) {
+                    file = files[0];
+                    try {
+                        var URL = window.URL || window.webkitURL;
+                        var blob = URL.createObjectURL(file);　　 // 获取照片的文件流
+                        compressPicture(blob);　　 // 压缩照片
+                    } catch(e) {
+                        try {
+                            var fileReader = new FileReader();
+                            fileReader.onload = function(event) {　　　　 // 获取照片的base64编码
+                                compressPicture(event.target.result);　　 // 压缩照片
+                            };
+                            fileReader.readAsDataURL(file);
+                        } catch(e) {
+                            alert(common.MESSAGE.title.error, '拍照失败,请联系客服或尝试更换手机再试!');
+                        }
+                    }
+                }
+            }
+        }();
+        var compressPicture = function(blob) {
+            var quality = 0.5,
+                image = new Image();
+            image.src = blob;
+            image.onload = function() {
+                var that = this;
+                // 生成比例
+                var width = that.width,
+                    height = that.height;
+                width = width / 4;
+                height = height / 4;
+                // 生成canvas画板
+                var canvas = document.createElement('canvas');
+                var ctx = canvas.getContext('2d');
+                canvas.width = width;
+                canvas.height = height;
+                ctx.drawImage(that, 0, 0, width, height);
+                // 生成base64,兼容修复移动设备需要引入mobileBUGFix.js
+                var imgurl = canvas.toDataURL('image/jpeg', quality);
+                // 修复IOS兼容问题
+                if(navigator.userAgent.match(/iphone/i)) {
+                    var mpImg = new MegaPixImage(image);
+                    mpImg.render(canvas, {
+                        maxWidth: width,
+                        maxHeight: height,
+                        quality: quality
+                    });
+                    imgurl = canvas.toDataURL('image/jpeg', quality);
+                }
+                // 上传照片
+                uploadPicture(imgurl);
+            };
+        };
+	});
+</script>
+
+</html>

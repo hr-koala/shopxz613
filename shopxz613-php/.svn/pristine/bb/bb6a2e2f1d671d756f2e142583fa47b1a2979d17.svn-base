@@ -1,0 +1,126 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:38:"./template/web/rainbow/mine\index.html";i:1547713692;s:72:"D:\PHPTutorial\WWW\shopxz613-php\template\web\rainbow\public\header.html";i:1547189899;s:72:"D:\PHPTutorial\WWW\shopxz613-php\template\web\rainbow\public\footer.html";i:1547606976;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>我的</title>
+    <link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/css/alertPopShow.css">
+    <link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/css/ui-dialog.css">
+    <link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/css/mr_style.css">
+    <script type="text/javascript" src="/template/web/rainbow/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/template/web/rainbow/static/js/alertPopShow.js"></script>
+    
+</head>
+<body class="page-mine page-miney">
+
+<link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/tonghaoran/css/common.css">
+<link rel="stylesheet" type="text/css" href="/template/web/rainbow/static/tonghaoran/css/mr_style.css">
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>代理中心</h5>
+</header>
+    <div class="container">
+        <div class="top">
+            <!--<div class="" style="display: flex">-->
+                <div class="yuan">
+                    <div class="avatar"><img src="<?php if($user_info[head_pic] != null): ?><?php echo $user_info[head_pic]; else: ?>/template/web/rainbow/static/tonghaoran/images/prod6.png<?php endif; ?>" alt=""></div>
+                </div>
+                <div class="nicename">
+                    <p><?php if($user_info['nickname'] != ''): ?><?php echo $user_info['nickname']; else: ?><?php echo $user_info['mobile']; endif; ?></p>
+                    <div class="proxy">
+                        <div class="proxy-img"></div>
+                        <div class="proxy-txt">荣誉省代</div>
+                    </div>
+                    <!--<div class="VIP"><?php if($level != ''): ?><?php echo $level['level_name']; else: ?>普通会员<?php endif; ?></div>-->
+                    <div class="mobile">132****3157</div>
+                </div>
+            <!--</div>-->
+
+        	<a href="<?php echo U('cosmetology/Mine/setUp'); ?>" class="right flex-row" title="">
+                <p>设置</p>
+                <div class="jt-r"></div>
+            </a>
+        </div>
+
+        <div class="main">
+            <div class="order">
+                <div class="tit flex-row">
+                    <div class="name">我的订单</div>
+                    <a href="<?php echo U('cosmetology/Order/orderList'); ?>" class="right" title="">
+                        <p>查看全部订单</p>
+                        <div class="jt-r"></div>
+                    </a>
+                </div>
+                <ul class="flex-row">
+                    <li>
+                        <a href="<?php echo U('cosmetology/Order/orderList',['status'=>'WAITPAY']); ?>" title="" class="flex-column">
+                            <div class="icon i1"></div>
+                            <div class="name">待付款<span <?php if($order_num['WAITPAY'] != 0): ?>class="take_y"<?php endif; ?> ><?php echo $order_num['WAITPAY']; ?></span></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo U('cosmetology/Order/orderList',['status'=>'WAITSEND']); ?>" title="" class="flex-column">
+                            <div class="icon i2"></div>
+                            <div class="name">待发货<span <?php if($order_num['WAITSEND'] != 0): ?>class="take_y"<?php endif; ?> ><?php echo $order_num['WAITSEND']; ?></span></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo U('cosmetology/Order/orderList',['status'=>'WAITRECEIVE']); ?>" title="" class="flex-column">
+                            <div class="icon i3"></div>
+                            <div class="name">待收货<span <?php if($order_num['WAITRECEIVE'] != 0): ?>class="take_y"<?php endif; ?> ><?php echo $order_num['WAITRECEIVE']; ?></span></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo U('cosmetology/Order/orderList',['status'=>'FINISH']); ?>" title="" class="flex-column">
+                            <div class="icon i4"></div>
+                            <div class="name">已完成<span <?php if($order_num['FINISH'] != 0): ?>class="take_y"<?php endif; ?> ><?php echo $order_num['FINISH']; ?></span></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="other">
+            	<ul>
+	                <li>
+	                    <a href="<?php echo U('cosmetology/Mine/collection'); ?>" class="flex-row" title="">
+	                        <div class="icon i1"></div>
+	                        <div class="right flex-row">
+	                            <div class="name">我的收藏</div>
+	                            <div class="jt-r"></div>
+	                        </div>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="<?php echo U('cosmetology/Mine/address'); ?>" class="flex-row" title="">
+	                        <div class="icon i2"></div>
+	                        <div class="right flex-row">
+	                            <div class="name">地址管理</div>
+	                            <div class="jt-r"></div>
+	                        </div>
+	                    </a>
+	                </li>
+	            </ul>
+	        </div>
+        </div>
+    </div>
+
+<footer id="footer-nav"></footer>
+<script>
+    if("<?php echo $level_status; ?>" == 1){
+        var isdaili = true;
+    }else{
+        var isdaili = false;
+    }
+</script>
+<script type="text/javascript">var footerNav =  <?php echo $footer; ?>;</script>
+<script type="text/javascript" src="/template/web/rainbow/static/js/footer.js"></script>
+</body>
+</html>

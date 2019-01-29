@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>提现</title>
+    <link rel="stylesheet" type="text/css" href="css/ui-dialog.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <style>
+        select{background: #fff;}
+    </style>
+</head>
+<body class="page-with1">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>提现</h5>
+</header>
+
+<div class="main">
+    <!--<div class="inp-box flex-row">
+        <div class="name">选择银行</div>
+        <span>:</span>
+        <div class="right">
+            <select id="bankname">
+                <option value="工商银行">工商银行</option>
+                <option value="建设银行">建设银行</option>
+                <option value="邮政银行">邮政银行</option>
+                <option value="招商银行">招商银行</option>
+            </select>
+        </div>
+    </div>
+    <div class="inp-box flex-row">
+        <div class="name">姓    名</div>
+        <span>:</span>
+        <div class="right">
+            <input type="text" name="" id="name" value="" placeholder="请输入您的姓名">
+        </div>
+    </div>
+    <div class="inp-box flex-row">
+        <div class="name">银行卡号</div>
+        <span>:</span>
+        <div class="right">
+            <input type="text" name="" id="bankcard" value="" placeholder="请输入您的银行卡号">
+        </div>
+    </div>
+    <div class="inp-box flex-row">
+        <div class="name">确认卡号</div>
+        <span>:</span>
+        <div class="right">
+            <input type="text" name="" id="bankcard1" value="" placeholder="请再次输入您的银行卡号">
+        </div>
+    </div>-->
+
+    <a class="yh" href="bankcard.html">
+        <div class="yh-lf" >
+            <div class="yh-img zhaoshang">
+                <!--<img src="images/icon_zhaoshang.png">-->
+            </div>
+            <div class="yh-name">
+                <div class="yh-tit">农业银行</div>
+                <div class="yh-txt">尾号3655储蓄卡</div>
+            </div>
+        </div>
+        <div class="yh-rg">
+
+        </div>
+    </a>
+
+    <div class="money">
+        <h4>提取金额</h4>
+        <div class="box flex-row">
+            <span>￥</span>
+            <div class="right">
+                <input type="text" name="" id="money" value="" placeholder="100">
+            </div>
+            <button type="button" class="all">全部提现</button>
+        </div>
+        <div class="balance">当前余额<span>3500</span>元</div>
+    </div>
+
+    <div class="p1">请确保账号准确无误，预计3-7个工作日到账</div>
+
+    <div class="btn-box">
+        <button type="button" class="btn-blue btn-submit1">提现</button>
+    </div>
+
+</div>
+
+<div class="bank-withdrawal">
+    <div class="bank-withdrawal-img">
+        <img src="images/icon_tixain.png">
+    </div>
+    <p>提现申请发起成功，银行处理中！</p>
+    <div class="bank-withdrawal_btn">
+        <input type="button" name="" value="确定" />
+    </div>
+</div>
+
+<div class="mask"></div>
+
+
+<footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  2;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+
+</body>
+<script type="text/javascript" src="js/dialog-plus-min.js"></script>
+<script>
+
+    $(function(){
+        $('.all').on('click', function(){
+            $('#money').val($(".page-with1 .balance span").text())
+        })
+
+
+
+        // console.log($(".page-with1 .yh-tit").text())
+        if($(".page-with1 .yh-tit").text() == "招商银行"){
+            $(".page-with1 .yh-img").addClass("zhaoshang")
+        }else {
+            $(".page-with1 .yh-img").removeClass("zhaoshang")
+        }
+        if($(".page-with1 .yh-tit").text() == "中国银行"){
+            $(".page-with1 .yh-img").addClass("zhongyin")
+        }else {
+            $(".page-with1 .yh-img").removeClass("zhongyin")
+        }
+        if($(".page-with1 .yh-tit").text() == "建设银行"){
+            $(".page-with1 .yh-img").addClass("jianhang")
+        }else {
+            $(".page-with1 .yh-img").removeClass("jianhang")
+        }
+        if($(".page-with1 .yh-tit").text() == "交通银行"){
+            $(".page-with1 .yh-img").addClass("jiaotong")
+        }else {
+            $(".page-with1 .yh-img").removeClass("jiaotong")
+        }
+        if($(".page-with1 .yh-tit").text() == "农业银行"){
+            $(".page-with1 .yh-img").addClass("nongye")
+        }else {
+            $(".page-with1 .yh-img").removeClass("nongye")
+        }
+
+
+        $(".page-with1").on("click",".btn-submit1",function(){
+            $(".page-with1 .bank-withdrawal").show();
+            $(" .page-with1 .mask").show();
+        });
+        $(".bank-withdrawal_btn").on("click",function(){
+            $(".page-with1 .bank-withdrawal").hide();
+            $(" .page-with1 .mask").hide();
+        });
+
+
+    })
+
+    /*function dialogFun(str){
+        dialog({
+            width: 280,
+            title: '提示',
+            content: str,
+            cancel: false,
+            okValue: '确定',
+            ok: function(){
+            }
+        }).showModal();
+    }*/
+</script>
+</html>

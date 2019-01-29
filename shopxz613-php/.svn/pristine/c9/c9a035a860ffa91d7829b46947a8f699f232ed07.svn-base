@@ -1,0 +1,263 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="format-detection" content="telephone=no">
+    <title>奖励明细</title>
+    <link rel="stylesheet" href="__STATIC__/tonghaoran/css/common.css">
+    <link rel="stylesheet" href="__STATIC__/tonghaoran/css/mr_style.css">
+    <script type="text/javascript" src="__STATIC__/tonghaoran/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="__STATIC__/tonghaoran/css/date.css">
+    <script src="__STATIC__/tonghaoran/js/date.js"></script>
+    <script src="__STATIC__/tonghaoran/js/iscroll_date.js"></script>
+
+</head>
+<body class="page-income page-reple-reward"> -->
+
+<include file="public/header" title="奖励明细"  body="page-income page-reple-reward"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/tonghaoran/css/common.css">
+<link rel="stylesheet" type="text/css" href="__STATIC__/tonghaoran/css/mr_style.css">
+<link rel="stylesheet" href="__STATIC__/tonghaoran/css/date.css">
+<script src="__STATIC__/tonghaoran/js/date.js"></script>
+<script src="__STATIC__/tonghaoran/js/iscroll_date.js"></script>
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>奖励明细</h5>
+</header>
+
+<div class="container">
+    <!--<div class="no-data">
+        <img src="__STATIC__/tonghaoran/images/icon_income_no.png">
+        <div class="no-data-txt">
+            暂无!
+        </div>
+    </div>-->
+    <div class="top">
+        <div class="num">¥<span>1300</span></div>
+        <div class="name">累计奖励（元）</div>
+    </div>
+
+    <div class="main">
+        <div class="reward-status">
+            <div class=""><span class="reward-status-txt">已使用：</span><span>¥2500</span></div>
+            <div class=""><span class="reward-status-txt">剩余：</span><span>¥0.00</span></div>
+        </div>
+        <div class="income-detail-month">
+            <div class="income-month-txt">明细</div>
+            <div class="income-month">
+                <div class="income-month-date" id="income-month-date">
+                    <input class="dateinput" type="text" id="dateinput" value="2019-01-09" />
+                    <span></span>
+                    <div class="income-month-date-downimg"></div>
+                </div>
+                <div  id="datePlugin">
+                    <!--<div class="calendar-wrapper">
+                        <div id="calendar-monthly"></div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        <div class="no-data">
+            <img src="__STATIC__/tonghaoran/images/icon_income_no.png">
+            <div class="no-data-txt">
+                暂无!
+            </div>
+        </div>
+        <div class="has-data">
+            <ul>
+                <li class="income-detail-jiangli ">
+                    <div class="income-jiangli-left">
+                        <div class="income-jiangli-img">
+                            <img src="__STATIC__/tonghaoran/images/icon_reward1.png">
+                        </div>
+                        <div class="income-jiangli-txt distri-box">
+                            <div class="income-jiangli-left-txt ">
+                                <span class="distr-shop-name reward-name">直推奖励</span>
+                            </div>
+                            <div class="order-bianhao"></div>
+                            <div class="income-jiangli-left-date ">
+                                <span>2018-12-22 15:35:25</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="income-jiangli-right">
+                        + 5000.000
+                    </div>
+                </li>
+                <li class="income-detail-jiangli ">
+                    <div class="income-jiangli-left">
+                        <div class="income-jiangli-img">
+                            <img src="__STATIC__/tonghaoran/images/icon_reward2.png">
+                        </div>
+                        <div class="income-jiangli-txt distri-box">
+                            <div class="income-jiangli-left-txt">
+                                <span class="distr-shop-name reward-name">推广奖励</span>
+                            </div>
+                            <div class="order-bianhao"></div>
+                            <div class="income-jiangli-left-date ">
+                                <span>2018-12-22 15:35:25</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="income-jiangli-right">
+                        + 5000.000
+                    </div>
+                </li>
+                <li class="income-detail-jiangli ">
+                    <div class="income-jiangli-left">
+                        <div class="income-jiangli-img">
+                            <img src="__STATIC__/tonghaoran/images/icon_reward3.png">
+                        </div>
+                        <div class="income-jiangli-txt distri-box">
+                            <div class="income-jiangli-left-txt">
+                                <span class="distr-shop-name reward-name">销售提成 待返</span>
+                            </div>
+                            <div class="order-bianhao"></div>
+                            <div class="income-jiangli-left-date ">
+                                <span>2018-12-22 15:35:25</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="income-jiangli-right status-wait-return">
+                        + 5000.000
+                    </div>
+                </li>
+                <li class="income-detail-jiangli ">
+                    <div class="income-jiangli-left">
+                        <div class="income-jiangli-img">
+                            <img src="__STATIC__/tonghaoran/images/icon_reward1.png">
+                        </div>
+                        <div class="income-jiangli-txt distri-box">
+                            <div class="income-jiangli-left-txt ">
+                                <span class="distr-shop-name reward-name">销售提成 已返</span>
+                            </div>
+                            <div class="order-bianhao"></div>
+                            <div class="income-jiangli-left-date ">
+                                <span>2018-12-22 15:35:25</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="income-jiangli-right ">
+                        + 5000.000
+                    </div>
+                </li>
+                <li class="income-detail-jiangli ">
+                    <div class="income-jiangli-left">
+                        <div class="income-jiangli-img">
+                            <img src="__STATIC__/tonghaoran/images/icon_reward2.png">
+                        </div>
+                        <div class="income-jiangli-txt distri-box">
+                            <div class="income-jiangli-left-txt">
+                                <span class="distr-shop-name reward-name">获得城市业绩奖励</span>
+                            </div>
+                            <div class="order-bianhao"></div>
+                            <div class="income-jiangli-left-date ">
+                                <span>2018-12-22 15:35:25</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="income-jiangli-right ">
+                        + 5000.000
+                    </div>
+                </li>
+                <li class="income-detail-jiangli ">
+                    <div class="income-jiangli-left">
+                        <div class="income-jiangli-img">
+                            <img src="__STATIC__/tonghaoran/images/icon_reward3.png">
+                        </div>
+                        <div class="income-jiangli-txt distri-box">
+                            <div class="income-jiangli-left-txt">
+                                <span class="distr-shop-name reward-name">获得补货奖励</span>
+                            </div>
+                            <div class="order-bianhao"></div>
+                            <div class="income-jiangli-left-date">
+                                <span>2018-12-22 15:35:25</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="income-jiangli-right">
+                        + 5000.000
+                    </div>
+                </li>
+                <li class="income-detail-jiangli ">
+                    <div class="income-jiangli-left">
+                        <div class="income-jiangli-img">
+                            <img src="__STATIC__/tonghaoran/images/icon_reward1.png">
+                        </div>
+                        <div class="income-jiangli-txt distri-box">
+                            <div class="income-jiangli-left-txt ">
+                                <span class="distr-shop-name reward-name">积分红利</span>
+                            </div>
+                            <div class="order-bianhao"></div>
+                            <div class="income-jiangli-left-date ">
+                                <span>2018-12-22 15:35:25</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="income-jiangli-right">
+                        + 5000.000
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<include file="public/footer"/>
+
+<!-- <footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  4;</script>
+<script type="text/javascript" src="__STATIC__/tonghaoran/js/footer.js"></script> -->
+<script>
+    $(".page-reple-reward").on("click",".reward-tit",function () {
+        $(this).addClass("active").siblings(".reward-tit").removeClass("active")
+    })
+
+
+
+    //初始化日期插件
+    var datestr;
+    $('#dateinput').date(
+        function (datestr) {
+            console.log(datestr)
+        });
+
+
+
+
+    /*$(".page-income").on("click",".income-month-date",function () {
+        // $(".page-income .income-layer").show()
+        console.log($(".page-income .date-month").hasClass("month-hide"))
+        if($(".page-income .date-month").hasClass("month-hide")){
+            $(".page-income .date-month").removeClass("month-hide")
+        }else {
+            $(".page-income .date-month").addClass("month-hide")
+        }
+
+    })
+    $(".page-income").on("click",".tmonth ",function () {
+        console.log($(this).text())
+        $(".page-income .date-month").addClass("month-hide")
+
+    })
+
+
+    $("#calendar-monthly").flexoCalendar({
+        type: 'monthly',
+        onselect: function(date){
+            console.log(date)
+            let time = date
+            $(".page-income .income-month-date span").text(time)
+        }
+    });*/
+</script>
+
+</body>
+</html>

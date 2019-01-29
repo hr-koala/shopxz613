@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>我的订单</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body class="page-pick-order">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>销售订单</h5>
+</header>
+
+<div class="container">
+    <div class="top">
+        <div class="num">¥<span>1300</span></div>
+        <div class="name">累计补货奖励（元）</div>
+    </div>
+    <div class="head">
+        <ul class="flex-row">
+            <li data-index="0" >全部</li>
+            <li data-index="1" class="on">待付款</li>
+            <li data-index="2">已付款</li>
+            <li data-index="3">已完成</li>
+        </ul>
+    </div>
+
+    <!--<div class="no-data">
+        <img src="images/icon-null-order.png">
+    </div>-->
+    <div class="list has-data">
+
+        <div class="box">
+            <ul>
+                <li class="reple-box">
+                    <div class="name">
+                        <span class="shop-name">复合树莓果片压片糖果</span>
+                        <span>X1</span>
+                    </div>
+                    <div class="order-num">
+                        订单编号：12333545441613
+                    </div>
+                    <div class="time">
+                        <span class="time-date">2018-12-26 15:35</span>
+                        <span class="stats">已完成</span>
+                    </div>
+                </li>
+                <li class="reple-box">
+                    <div class="name">
+                        <span class="shop-name">复合树莓果片压片糖果</span>
+                        <span>X1</span>
+                    </div>
+                    <div class="order-num">
+                        订单编号：12333545441613
+                    </div>
+                    <div class="time">
+                        <span class="time-date">2018-12-26 15:35</span>
+                        <span class="stats pay">待付款</span>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  4;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+
+</body>
+<script>
+
+    $(function(){
+        $('.head ul li').on('click', function(){
+            var index = $(this).data('index')
+            $(this).addClass("on").siblings().removeClass('on')
+        })
+
+    })
+
+</script>
+</html>

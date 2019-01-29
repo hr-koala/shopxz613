@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>推广奖励</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/FlexoCalendar.css">
+    <script src="js/FlexoCalendar.js"></script>
+</head>
+<body class="page-income page-reple-reward">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>推广奖励</h5>
+</header>
+
+<div class="container">
+    <!--<div class="no-data">
+        <img src="images/icon_income_no.png">
+        <div class="no-data-txt">
+            暂无!
+        </div>
+    </div>-->
+    <div class="top">
+        <div class="num">¥<span>1300</span></div>
+        <div class="name">累计推广奖励（元）</div>
+    </div>
+
+    <div class="main">
+        <div class="reward-tab">
+            <div class="reward-tit active">
+                <span>5</span>
+                <span>已获得奖励(份)</span>
+            </div>
+            <!--<div class="reward-tit">
+                <span>500</span>
+                <span>邀请失败</span>
+            </div>-->
+        </div>
+
+        <div class="no-data">
+            <img src="images/icon_income_no.png">
+            <div class="no-data-txt">
+                暂无!
+            </div>
+        </div>
+        <div class="has-data">
+            <ul>
+                <li class="income-detail-jiangli">
+                    <div class="income-jiangli-left">
+                        <div class="income-jiangli-txt">
+                            <div class="income-jiangli-left-txt">
+                                嘻嘻成为代理
+                            </div>
+                            <div class="income-jiangli-left-date">
+                                2018-12-22 15:35:25
+                            </div>
+                        </div>
+                    </div>
+                    <div class="income-jiangli-right">
+                        + 5000.000
+                    </div>
+                </li>
+                <li class="income-detail-jiangli">
+                    <div class="income-jiangli-left">
+                        <div class="income-jiangli-txt">
+                            <div class="income-jiangli-left-txt">
+                                嘻嘻成为代理
+                            </div>
+                            <div class="income-jiangli-left-date">
+                                2018-12-22 15:35:25
+                            </div>
+                        </div>
+                    </div>
+                    <div class="income-jiangli-right">
+                        + 5000
+                    </div>
+                </li>
+                <li class="income-detail-jiangli">
+                    <div class="income-jiangli-left">
+                        <div class="income-jiangli-txt">
+                            <div class="income-jiangli-left-txt">
+                                嘻嘻成为代理
+                            </div>
+                            <div class="income-jiangli-left-date">
+                                2018-12-22 15:35:25
+                            </div>
+                        </div>
+                    </div>
+                    <div class="income-jiangli-right ">
+                        500220.000
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  4;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+<script>
+    $(".page-reple-reward").on("click",".reward-tit",function () {
+        $(this).addClass("active").siblings(".reward-tit").removeClass("active")
+    })
+
+
+
+    $(".page-income").on("click",".income-month-date",function () {
+        // $(".page-income .income-layer").show()
+        console.log($(".page-income .date-month").hasClass("month-hide"))
+        if($(".page-income .date-month").hasClass("month-hide")){
+            $(".page-income .date-month").removeClass("month-hide")
+        }else {
+            $(".page-income .date-month").addClass("month-hide")
+        }
+
+    })
+    $(".page-income").on("click",".tmonth ",function () {
+        console.log($(this).text())
+        $(".page-income .date-month").addClass("month-hide")
+
+    })
+
+
+    $("#calendar-monthly").flexoCalendar({
+        type: 'monthly',
+        onselect: function(date){
+            console.log(date)
+            let time = date
+            $(".page-income .income-month-date span").text(time)
+        }
+    });
+</script>
+
+</body>
+</html>

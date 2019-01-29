@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>订单详情</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body class="page-miorder page-order-detail">
+
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>订单详情</h5>
+</header>
+
+<div class="container">
+    <div class="top">
+        <div class="top-stats">等待买家付款</div>
+        <div class="top-img">
+            <img src="images/order-detail.png">
+        </div>
+    </div>
+
+    <div class="no-data">
+        <img src="images/icon-null-order.png">
+    </div>
+    <div class="list has-data">
+
+        <a href="mine_address.html" class="address">
+            <div class="lf">
+                <div class="address-dingwei">
+                    <img src="images/icon_dingwei.png">
+                </div>
+                <div class="address-con">
+                    <div class="tit">
+                        <div class="name">收货人：陈某某陈某某陈某某陈某某陈某某陈某某陈某某</div>
+                        <div class="tel">132779531757</div>
+                    </div>
+                    <div class="address-txt">收货地址：湖北省武汉市硚口区武胜路收货地址：湖北省武汉市硚口区武胜路收货地址：湖北省武汉市硚口区武胜路收货地址：湖北省武汉市硚口区武胜路</div>
+                </div>
+            </div>
+            <div class="rg"></div>
+        </a>
+        <div class="box">
+            <ul>
+                <li class="goods">
+                    <div class="item flex-row">
+                        <a href="#">
+                            <div class="img"><img src="images/prod2.png" alt=""></div>
+                            <div class="right flex-column">
+                                <div class="name">V脸套装（V脸霜+脸神器+唤醒面膜）V脸套装（V脸霜+脸神器+唤醒面膜）</div>
+                                <div class="bot">
+                                    <div class="spec">规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML</div>
+                                    <div class="flex-row">
+                                        <div class="price">￥100</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="num">x1</div>
+                        </a>
+                    </div>
+                </li>
+                <li class="goods">
+                    <div class="item flex-row">
+                        <a href="#">
+                            <div class="img"><img src="images/prod2.png" alt=""></div>
+                            <div class="right flex-column">
+                                <div class="name">V脸套装（V脸霜+脸神器+唤醒面膜）</div>
+                                <div class="bot">
+                                    <div class="spec">规格:100ML</div>
+                                    <div class="flex-row">
+                                        <div class="price">￥100</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="num">x1</div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="all">
+            <div class="total-price">
+                <span>商品总额：</span>
+                <span>¥399.8</span>
+            </div>
+            <div class="total-price">
+                <span>运费：</span>
+                <span>¥399.8</span>
+            </div>
+            <div class="total-price">
+                <span>实付费（含运费）</span>
+                <span>¥399.8</span>
+            </div>
+        </div>
+        <div class="biaohao">
+            <div class="biaohao-txt">
+                订单编号：SH2018123123321122
+            </div>
+            <div class="biaohao-txt">
+                创建时间：2018-10-13 16:22
+            </div>
+        </div>
+        <div class="btn-row">
+            <button type="button" class="btn btn-cancel">取消订单</button>
+            <button type="button" class="btn bg-blue">立即支付</button>
+        </div>
+    </div>
+
+</div>
+
+
+
+<footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  5;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+
+</body>
+<script>
+
+    $(function(){
+        $('.head ul li').on('click', function(){
+            var index = $(this).data('index')
+            $(this).addClass("on").siblings().removeClass('on')
+        })
+
+        $('.page-miorder .box .btn-cancel').on('click', function(){
+            $(this).parent().parent(".box").remove()
+            boxlen()
+        })
+        boxlen()
+        function boxlen() {
+            console.log($(".page-miorder .box").length)
+            if($(".page-miorder .box").length == 0){
+                $(".page-miorder .has-data").hide()
+                $(".page-miorder .no-data").show()
+            }else {
+                $(".page-miorder .has-data").show()
+                $(".page-miorder .no-data").hide()
+            }
+        }
+
+
+    })
+
+</script>
+</html>

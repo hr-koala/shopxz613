@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>搜索</title>
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body class="page-search">
+    
+<header id="header" class="">
+    <div class="icon-back" onclick="history.back()"></div>
+    <h5>全部商品</h5>
+</header>
+<div>
+    <form action="" id="grabble">
+        <input type="search" placeholder="搜索">
+    </form>
+    <div class="types">
+        <span class="complex">综合</span>
+        <span class="volume">销量</span>
+        <span class="price">价格</span>
+        <span class="filter">筛选</span>
+    </div>
+    <div class="mask"></div>
+    <div class="selects">
+            <div class="classification">
+                <span class="off">推荐商品</span>
+                <span class="off">新平上市</span>
+                <span class="off">热卖商品</span>
+                
+            </div>
+            <div class="select-class">
+                <div class="titles">选择分类</div>
+                <div class="class-list">
+                    <ul class="class-on">瘦脸霜
+                        <div class="sort" style="display:block">
+                            <li>日间霜</li>
+                            <li>夜间霜</li>
+                            <li>日间霜</li>
+                            <li>夜间霜</li>
+                            <li>日间霜</li>
+                            <li>夜间霜</li>
+                            <li>日间霜</li>
+                            <li>夜间霜</li>
+                            <li>日间霜</li>
+                            <li>夜间霜</li>
+                            <li>日间霜</li>
+                            <li>夜间霜</li>
+                        </div>
+                    </ul>
+                    <ul>滋补养颜
+                        <div class="sort">
+                            <li>b间霜</li>
+                            <li>夜间霜</li>
+                        </div>
+                    </ul>
+                    <ul>减肥排毒
+                        <div class="sort">
+                            <li>c间霜</li>
+                            <li>夜间霜</li>
+                        </div>
+                    </ul>
+                    <ul>身体乳</ul>
+                    <ul>滋补养颜</ul>
+                    <ul>减肥排毒</ul>
+                    <ul>身体乳</ul>
+                    <ul>滋补养颜</ul>
+                    <ul>减肥排毒</ul>
+                    <ul>身体乳</ul>
+                    <ul>滋补养颜</ul>
+                    <ul>减肥排毒</ul>
+                    <ul>身体乳</ul>
+                </div>
+            </div>
+            <div class="btn">
+                <button class="cancel">取消筛选</button>
+                <input type="submit" value="确认" class="confirm"/>
+            </div>
+        </div>
+
+</div>
+
+
+<div class="conter">
+    <!-- msg为空是显示 -->
+    <div class="air" v-if="!msg.length > 0">
+        <img src="images/wu.jpg">
+        <p>暂时没有任何商品</p>
+    </div>
+
+    <div class="goods-item" v-for="n in 8">
+        <div class="img"><img src="images/prod2.png" alt=""></div>
+        <div class="name">V脸套装（V脸霜+瘦脸V脸套装（V脸霜+瘦脸</div>
+        <div class="gbot flex-row" v-if="2 > 1">
+            <div class="gleft">
+                <div class="has-price">¥1980</div>
+                <div class="price">代理价：<span>¥980</span></div>
+            </div>
+            <div class="icon icon-cart"></div>
+        </div>
+        <div class="gbot flex-row" v-else>
+            <div class="price"><span>¥980</span></div>
+            <div class="icon icon-cart"></div>
+        </div>
+    </div>
+    <!-- 清除浮动 -->
+    <div style="clear:both;"></div>
+</div>
+
+<footer id="footer-nav"></footer>
+<script type="text/javascript">var footerNav =  2;</script>
+<script type="text/javascript" src="js/footer.js"></script>
+
+</body>
+<script>
+    new Vue({
+        el:'.conter',
+        data:{
+            msg:'1'
+        }
+    })
+    $(function () {
+        $('.page-search .class-list ul').on('click',function(){
+            $('.page-search .sort').hide();
+            $('.page-search .sort').eq($(this).index()).show();
+            $('.class-list ul').eq($(this).index()).addClass("class-on").siblings().removeClass();
+        })
+
+        var s = 1;
+        $('.filter').click(function(){
+            s++;
+            if(s%2 == 0){
+                $('.page-search .mask').show()
+                $('.page-search .selects').show()
+                $(this).css({
+                    'color':'#e14594',
+                    "background-image":"url('images/xiahong.png')"
+                });
+            }else{
+                filterhide()
+            }
+        })
+
+        function filterhide(){
+            if(s%2 == 0){
+                s += 1
+            }
+            $('.page-search .mask').hide();
+            $('.filter').css({
+                'color':'#000000',
+                "background-image":"url('images/xia.png')"
+            });
+        }
+
+        var t = 1
+        var r = 1
+        function pricehide(indx,t){
+            if(t%2 == 0){
+                $(indx).css({
+                    "background-image":"url('images/shang.png')"
+                });
+            }else{
+                $(indx).css({
+                    "background-image":"url('images/xia.png')"
+                });
+            }
+        }
+
+        var w = 0;
+        $('.classification span').click(function(){
+            $('.classification span').eq($(this).index()).removeClass('off').addClass('open').siblings().removeClass('open').addClass('off');
+            w++;
+            if(w%2 == 0){
+                $('.classification span').eq($(this).index()).removeClass('open').addClass('off');
+            }
+        })
+
+
+
+
+        $('.price').click(function(){
+            filterhide()
+            t++;
+            pricehide('.price',t)
+            $('.page-search .selects').hide()
+        })
+
+        $('.volume').click(function(){
+            filterhide()
+            r++;
+            pricehide('.volume',r)
+            $('.page-search .selects').hide()
+        })
+
+        $('.complex').click(function(){
+            filterhide()
+            $('.page-search .selects').hide()
+        })
+
+        $('.cancel').click(function(){
+            filterhide()
+        })
+
+        $('.confirm').click(function(){
+            filterhide()
+        })
+    })
+</script>
+</html>

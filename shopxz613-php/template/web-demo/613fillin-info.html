@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <!-- 苹果手机设置Web应用是否以全屏模式运行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 移动web页面自动探测电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>填写资料</title>
+    <link rel="stylesheet" type="text/css" href="css/ui-dialog.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/mr_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body class="page-cart page-report-cart page-purch page-fill-info">
+<header id="header" class="">
+    <div class="icon-back"></div>
+    <h5>填写资料</h5>
+</header>
+
+<div class="container" id="all">
+    <div class="main">
+
+        <div class="inp-box">
+            <label for = "invicode">邀请码</label>
+                <input type="text" name="" id="invicode" value="" placeholder="请输入您的邀请码">
+
+        </div>
+        <div class="inp-box">
+            <label for = "username">姓名</label>
+                <input type="text" name="" id="username" value="" placeholder="请输入您的姓名">
+
+        </div>
+        <div class="inp-box">
+            <label for = "userphone">手机号</label>
+                <input type="text" name="" id="userphone" value="" placeholder="请输入您的手机号">
+
+        </div>
+        <div class="inp-box">
+            <label for = "useridcode">身份证号</label>
+                <input type="text" name="" id="useridcode" value="" placeholder="请输入您的身份证号">
+
+        </div>
+        <div class="inp-box">
+            <label for = "wechatnumber">微信号</label>
+                <input type="text" name="" id="wechatnumber" value="" placeholder="请输入您的微信号（可选）">
+
+        </div>
+        <div class="inp-box">
+            <label for = "usermailbox">邮箱</label>
+                <input type="text" name="" id="usermailbox" value="" placeholder="请输入您的邮箱（可选）">
+
+        </div>
+        <div class="inp-box">
+            <label for = "storename">店铺名称</label>
+                <input type="text" name="" id="storename" value="" placeholder="请输入您的店铺名称">
+
+        </div>
+        <div class="inp-box">
+            <label for = "storeintroduction">店铺介绍</label>
+                <input type="text" name="" id="storeintroduction" value="" placeholder="请输入店铺介绍">
+
+        </div>
+        <div class="inp-logo flex-row">
+                <div class="left">
+                    <span>店铺LOGO</span>
+                </div>
+                <div class="logo-camera">
+                    <img src="images/icon_camera.png">
+                    <!--<input type="file">-->
+                </div>
+        </div>
+        <div class="inp-level">
+            <div class="inp-level1">
+                <span>代理级别</span>
+                <div class="sele-level">
+                    <span>请选择代理级别</span>
+                    <div class="icon-down"></div>
+                </div>
+            </div>
+            <ul>
+                <li>经销商</li>
+                <li>联合创始人</li>
+                <li>经销商</li>
+                <li>联合创始人</li>
+            </ul>
+
+        </div>
+        <div class="dealer-box">
+            <div class="dealer-con">
+                <div class="dealer">
+                    <div  class="dealer-img">
+                        <div class="dealer-img-txt">
+                            <p class="p1">经销商</p>
+                            <p class="p2">JINGXIAOSHANG</p>
+                        </div>
+                    </div>
+                    <div class="dealer-txt">成为经销商</div>
+                    <div class="dealer-num">¥ 4800</div>
+                </div>
+                <div class="dealer-stats">
+                    1.充值4800元成为经销商即可享受提货价
+                </div>
+
+            </div>
+            <div class="taocan">产品选择</div>
+            <div class="" v-if="2<3">
+                <div class="list">
+                    <div class="box flex-row" v-for="n in 3" data-num="1" data-price="895">
+                        <!--<label :for="'ch' + n"><input type="checkbox" name="" :id="'ch' + n" class="choose"></label>-->
+                        <div class="img"><img src="images/prod2.png" alt=""></div>
+                        <div class="right flex-column">
+                            <div class="name">V脸套装（V脸霜+瘦脸V脸套装（V脸霜+瘦脸</div>
+                            <div class="spec">规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML规格:100ML</div>
+                            <div class="sbot flex-row">
+                                <div class="price">¥895</div>
+                                <div class="set-num flex-row">
+                                    <div class="icon sub">-</div>
+                                    <div class="num">1</div>
+                                    <div class="icon add">+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="report-curren">
+                    <div class="all-price price">合计金额：<span class="all-price-num" id="allPrice">¥0</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="identity">
+            <div class="tit">请选择身份上传照片</div>
+            <div class="identity1">
+                <label class="">
+                    <input type="checkbox">
+                </label>
+                <div class="identity1-txt">微信卖家（连续三周每周至少三条微信朋友圈
+                    分享商品的截图以及微信个人中心截图）</div>
+            </div>
+            <div class="identity1">
+                <label class="">
+                    <input type="checkbox">
+                </label>
+                <div class="identity1-txt">线上平台卖家（店铺后台商家账户截图）</div>
+            </div>
+            <div class="identity1">
+                <label class="">
+                    <input type="checkbox">
+                </label>
+                <div class="identity1-txt">线下实体卖家（公司注册资质、法人身份证正
+                    反面、实体照片</div>
+            </div>
+
+            <div class="identity1 identity1-photo">
+                <!--<div class="identity1-addimg"></div>-->
+                <div class="identity1-add">
+                    <img src="images/icon_addimg.png">
+                    <input class="add-photo" type="file" accept="image/*" capture="camera">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="btn btn-submit">
+            <a href="">提交</a>
+        </div>
+    </div>
+
+</div>
+
+<div class="y_avatar">
+    <ul>
+        <li class="photo">
+            <input id="takepicture" type="file" accept="image/*" capture="camera" >
+            <!--<video id="video"></video>-->
+            拍照上传
+        </li>
+        <li class="album">
+            <!--<input type="file" name="" value="" class="add-img" accept="image/*" title="点击替换图片">-->
+            <input type="file" class="add-img" accept="image/*" value="" />从相册选择</li>
+        <li class="cancel">取消</li>
+    </ul>
+</div>
+
+<div class="mask"></div>
+
+</body>
+
+<script type="text/javascript" src="js/dialog-plus-min.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script>
+
+    $(function(){
+
+
+        vm = new Vue({
+            el: '#all',
+            data: {
+                isShowPswFlag: false, //是否显示密码
+                isShowAgainPswFlag: false, //
+                pswValue: '',
+                againPswValue: '',
+                isHyCodeFlag: true, //是否有好友邀请码
+            },
+            methods: {
+                //显示密码
+                showPswFun: function(){
+                    this.isShowPswFlag = true;
+                },
+                hidePswFun: function(){
+                    this.isShowPswFlag = false;
+                },
+                showAgainPswFun: function(){
+                    this.isShowAgainPswFlag = true;
+                },
+                hideAgainPswFun: function(){
+                    this.isShowAgainPswFlag = false;
+                },
+                /*改变是否有好友邀请码*/
+                chooseFrindCode: function(e){
+                    this.isHyCodeFlag = e.target.checked;
+                }
+            }
+        })
+
+        $('.btn-submit').on('click', function(){
+            var flag = flagFun();
+            if(flag){}
+        })
+
+
+
+        $('.main').on('click', '.inp-level .sele-level', function(){
+            $(".inp-level ul").show()
+        })
+        $('.main').on('click', '.inp-level li', function(){
+            $(".inp-level .sele-level span").text($(this).text())
+            $(this).parent("ul").hide()
+            $(".page-fill-info .dealer-box").show()
+        })
+        $('.main').on('click', '.identity1 label', function(){
+            if(!$(this).hasClass("on")){
+                $(this).addClass("on")
+
+            }else {
+                $(this).removeClass("on")
+            }
+            console.log($(this).children("input").is(":checked"))
+        })
+
+        //减数量
+        $('.main').on('click', '.box .sub', function(e){
+            var $box = $(this).closest('.box');
+            var num = parseInt($box.data('num'))
+            if(num > 1){
+                num -= 1;
+                $box.data('num', num)
+                $box.find('.num').html(num)
+                countPrice()
+            }
+        })
+        //加
+        $('.main').on('click', '.box .add', function(e){
+            var $box = $(this).closest('.box');
+            var num = parseInt($box.data('num'))
+            num += 1;
+            $box.data('num', num)
+            $box.find('.num').html(num)
+            countPrice()
+        })
+
+        //计算价格 显示
+        countPrice()
+        function countPrice(){
+            var box = $('.main .box');
+            var price = 0; //总价格
+            var len = 0; //选中的个数
+            $.each(box, function(is, el){
+                // if($(el).find('.choose')[0].checked){
+                var num = parseInt($(el).data('num'))
+                var pr = parseFloat($(el).data('price'))
+                len++;
+                price += num * pr;
+                // }
+                $('#allPrice').html('￥' + price)
+            })
+            price = parseFloat(price.toFixed(2))
+
+            $('#allPrice').html('￥' + price)
+        }
+
+
+
+
+        //修改头像
+        $(".logo-camera").on("mousedown",function(){
+            $(".y_avatar").show();
+            $(".mask").show();
+        });
+
+
+        // 拍照
+        $(".page-fill-info .photo").on("click",function () {
+            $(".y_avatar").hide();
+            $(".mask").hide();
+        })
+        // 相册
+        $(".page-fill-info .album").on("click",function () {
+            $(".y_avatar").hide();
+            $(".mask").hide();
+        })
+        // 取消
+        $(".page-fill-info .cancel").on("mousedown",function () {
+            $(".y_avatar").hide();
+            $(".mask").hide();
+        })
+
+
+        $('.page-fill-info').on('change', '.add-img', function(event) {
+            event.stopPropagation();
+            var oFile = this.files[0]
+            var _this = this
+            var fr = new FileReader();
+            var rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+            if (!rFilter.test(oFile.type)) {
+                errorFun()
+                return;
+            };
+            // console.log(event.target.value)//target.ownerDocument.value
+            fr.readAsDataURL(oFile);
+
+            fr.onload = function(FREvent) {
+                console.log(FREvent)
+                dealImage(FREvent.target.result, {
+                    width : 500
+                }, function(base){
+                    // console.log(oFile)
+                    // console.log(base)
+                    $.post("{:U('cosmetology/Mine/uploadPictures')}", {base:base},function(datas){});
+                    $(".page-fill-info .logo-camera img").attr('src',base);
+                })
+            }
+        })
+
+        function dealImage(path, obj, callback) {
+            var img = new Image();
+            img.src = path;
+            img.onload = function() {
+                var that = this;
+                // 默认按比例压缩
+                var w = that.width,
+                    h = that.height,
+                    scale = w / h;
+                w = obj.width || w;
+                h = obj.height || (w / scale);
+                var quality = 0.7; // 默认图片质量为0.7
+                //生成canvas
+                var canvas = document.createElement('canvas');
+                var ctx = canvas.getContext('2d');
+                // 创建属性节点
+                var anw = document.createAttribute("width");
+                anw.nodeValue = w;
+                var anh = document.createAttribute("height");
+                anh.nodeValue = h;
+                canvas.setAttributeNode(anw);
+                canvas.setAttributeNode(anh);
+                ctx.drawImage(that, 0, 0, w, h);
+                // 图像质量
+                if (obj.quality && obj.quality <= 1 && obj.quality > 0) {
+                    quality = obj.quality;
+                }
+                // quality值越小，所绘制出的图像越模糊
+                var type = 'image/jpeg'
+                var str = path.substring(0, path.search(/\;/g))
+                if(str.search(/(png)/g) >= 0){
+                    type = 'image/png'
+                }
+                var base64 = canvas.toDataURL(type, quality);
+                // 回调函数返回base64的值
+                callback(base64);
+                // $.post("{:U('cosmetology/Mine/uploadPictures')}", {base64:base64},function(datas){});
+            }
+        }
+
+        function addPhoto() {
+            var addDiv = '<div class="identity1-add"><img src="images/icon_addimg.png"><input class="add-photo" type="file" accept="image/*" capture="camera"></div>';
+            $(".identity1-photo").append(addDiv);
+        }
+
+        $('.page-fill-info').on('change', '.add-photo', function(event) {
+            addPhoto()
+            event.stopPropagation();
+            var oFile = this.files[0]
+            var _this = this
+            var fr = new FileReader();
+            var rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+            if (!rFilter.test(oFile.type)) {
+                errorFun()
+                return;
+            };
+            // console.log(event.target.value)//target.ownerDocument.value
+            fr.readAsDataURL(oFile);
+
+            fr.onload = function(FREvent) {
+                console.log(FREvent)
+                dealImage(FREvent.target.result, {
+                    width : 500
+                }, function(base){
+                    // console.log(oFile)
+                    // console.log(base)
+                    $.post("{:U('cosmetology/Mine/uploadPictures')}", {base:base},function(datas){});
+
+                    $(_this).siblings("img").attr('src',base);
+
+                })
+            }
+        })
+    })
+
+    //判断是否都有输入
+    function flagFun(){
+        var invicode = $('#invicode').val();  //邀请码
+        var username = $('#username').val();  //姓名
+        var userphone = $('#userphone').val();   //电话
+        var useridcode = $('#useridcode').val();  //身份证
+        var wechatnumber = $('#wechatnumber').val();  //微信号
+        var usermailbox = $('#usermailbox').val();   //邮箱
+        var storename = $('#storename').val();     //店铺名
+        var storeintroduction = $('#storeintroduction').val();  //店铺介绍
+
+        if(invicode === ''){
+            dialogFun('请输入您的邀请码');
+            return false;
+        }
+        if(username === ''){
+            dialogFun('请输入您的姓名');
+            return false;
+        }
+        if(userphone === ''){
+            dialogFun('请输入您的电话');
+            return false;
+        }
+        if(useridcode === ''){
+            dialogFun('请输入您的身份证');
+            return false;
+        }
+        if(wechatnumber == ''){
+            dialogFun('请输入您的微信号');
+            return false;
+        }
+        if(usermailbox === ''){
+            dialogFun('请输入您的邮箱');
+            return false;
+        }
+        if(storename === ''){
+            dialogFun('请输入您的店铺名');
+            return false;
+        }
+        if(storeintroduction === ''){
+            dialogFun('请输入您的店铺介绍');
+            return false;
+        }
+        return true;
+    }
+
+
+
+
+    function dialogFun(str){
+        dialog({
+            width: 280,
+            title: '提示',
+            content: str,
+            cancel: false,
+            okValue: '确定',
+            ok: function(){
+            }
+        }).showModal();
+    }
+
+
+
+
+</script>
+</html>
